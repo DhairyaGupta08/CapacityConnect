@@ -1,0 +1,16 @@
+{
+  "name": "Capacity Connect - Learning & Competency Portal",
+  "short_name": "CapacityConnect",
+  "description": "Digital Capacity Building and Learning Management Portal",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0E2238",
+  "theme_color": "#14304F",
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}
