@@ -15,14 +15,11 @@ import {
   Briefcase,
   Building,
   CheckCircle2,
-  Cpu,
   GraduationCap,
-  HelpCircle,
   Layers,
   Play,
   Plus,
   Shield,
-  Sliders,
   Sparkles,
   TrendingUp,
   User,
@@ -94,46 +91,46 @@ export default function CompetencyMatchingStudioPage() {
   };
 
   return (
-    <div className="space-y-8 pb-16">
+    <div className="space-y-6 pb-16">
       {/* Header */}
-      <div className="bg-gradient-to-r from-gov-navy-dark via-gov-navy to-gov-slate-900 text-white p-6 sm:p-8 rounded-2xl border border-gov-navy-light/40 shadow-sm space-y-2">
-        <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-950 text-emerald-300 text-xs font-semibold border border-emerald-500/30">
-          <Layers className="w-3.5 h-3.5" />
+      <div className="bg-white p-6 sm:p-7 rounded-xl border border-[#E2E8F0] shadow-[0_4px_20px_rgba(18,53,91,0.06)] space-y-2">
+        <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#DFF5F3] text-[#12355B] text-xs font-semibold border border-[#00A6A6]/20">
+          <Layers className="w-3.5 h-3.5 text-[#00A6A6]" />
           <span>Deterministic Competency Matching Engine</span>
         </div>
-        <h1 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-white">
+        <h1 className="text-xl sm:text-2xl font-bold tracking-tight text-[#12355B]">
           Institutional Capacity Matching Studio
         </h1>
-        <p className="text-xs sm:text-sm text-gov-slate-300 max-w-3xl leading-relaxed">
+        <p className="text-xs sm:text-sm text-[#64748B] max-w-3xl leading-relaxed">
           Define institutional competency requirements with weighted skill importance. The engine applies an
           explainable, mathematical matching formula across the accredited trainer registry to identify the best candidates.
         </p>
       </div>
 
       {/* Formula Explanation Banner */}
-      <div className="bg-white p-5 rounded-2xl border border-gov-slate-200 shadow-sm space-y-2">
-        <div className="flex items-center gap-2 font-bold text-xs text-gov-navy">
-          <Sparkles className="w-4 h-4 text-emerald-600" />
+      <div className="bg-[#DFF5F3]/50 p-4 sm:p-5 rounded-xl border border-[#00A6A6]/30 shadow-sm space-y-2">
+        <div className="flex items-center gap-2 font-bold text-xs text-[#12355B]">
+          <Sparkles className="w-4 h-4 text-[#00A6A6]" />
           <span>Deterministic Matching Formula (SIH26075 Governance Standard)</span>
         </div>
-        <div className="font-mono text-xs text-emerald-800 bg-emerald-50 p-3 rounded-xl border border-emerald-200 overflow-x-auto">
+        <div className="font-mono text-xs text-[#12355B] bg-white p-3 rounded-lg border border-[#E2E8F0] overflow-x-auto shadow-sm">
           Score = 100 × ( 0.40·S_skill + 0.20·S_subject + 0.15·S_proficiency + 0.15·S_experience + 0.10·S_qualification )
         </div>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
         {/* Left Column: Requirement Authoring Form */}
-        <div className="lg:col-span-6 bg-white p-6 sm:p-8 rounded-2xl border border-gov-slate-200 shadow-sm space-y-6">
-          <div className="border-b border-gov-slate-100 pb-3">
-            <h2 className="text-base font-bold text-gov-navy">
+        <div className="lg:col-span-6 bg-white p-6 sm:p-7 rounded-xl border border-[#E2E8F0] shadow-[0_4px_20px_rgba(18,53,91,0.06)] space-y-5">
+          <div className="border-b border-[#E2E8F0] pb-3">
+            <h2 className="text-sm font-bold text-[#12355B]">
               1. Define Competency Requirement Profile
             </h2>
-            <p className="text-xs text-gov-slate-500">Configure target department and required skill matrix.</p>
+            <p className="text-xs text-[#64748B]">Configure target department and required skill matrix.</p>
           </div>
 
           <form onSubmit={handleCreateAndMatch} className="space-y-4">
             <div>
-              <label className="block text-xs font-bold text-gov-navy uppercase tracking-wider mb-1">
+              <label className="block text-xs font-semibold text-[#12355B] uppercase tracking-wider mb-1">
                 Requirement Title
               </label>
               <input
@@ -141,13 +138,13 @@ export default function CompetencyMatchingStudioPage() {
                 required
                 value={title}
                 onChange={(e) => setTitle(e.target.value)}
-                className="w-full px-3 py-2 text-xs rounded-lg border border-gov-slate-300 focus:outline-none focus:border-emerald-500 font-medium text-gov-navy"
+                className="w-full px-3 py-2 text-xs rounded-lg border border-[#E2E8F0] focus:outline-none focus:ring-2 focus:ring-[#1769AA]/30 focus:border-[#1769AA] font-medium text-[#172B4D] bg-[#F7F9FC]"
               />
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
-                <label className="block text-xs font-bold text-gov-navy uppercase tracking-wider mb-1">
+                <label className="block text-xs font-semibold text-[#12355B] uppercase tracking-wider mb-1">
                   Target Role / Designation
                 </label>
                 <input
@@ -155,12 +152,12 @@ export default function CompetencyMatchingStudioPage() {
                   required
                   value={targetRole}
                   onChange={(e) => setTargetRole(e.target.value)}
-                  className="w-full px-3 py-2 text-xs rounded-lg border border-gov-slate-300 focus:outline-none focus:border-emerald-500"
+                  className="w-full px-3 py-2 text-xs rounded-lg border border-[#E2E8F0] focus:outline-none focus:ring-2 focus:ring-[#1769AA]/30 focus:border-[#1769AA] text-[#172B4D] bg-[#F7F9FC]"
                 />
               </div>
 
               <div>
-                <label className="block text-xs font-bold text-gov-navy uppercase tracking-wider mb-1">
+                <label className="block text-xs font-semibold text-[#12355B] uppercase tracking-wider mb-1">
                   Department / Ministry
                 </label>
                 <input
@@ -168,14 +165,14 @@ export default function CompetencyMatchingStudioPage() {
                   required
                   value={department}
                   onChange={(e) => setDepartment(e.target.value)}
-                  className="w-full px-3 py-2 text-xs rounded-lg border border-gov-slate-300 focus:outline-none focus:border-emerald-500"
+                  className="w-full px-3 py-2 text-xs rounded-lg border border-[#E2E8F0] focus:outline-none focus:ring-2 focus:ring-[#1769AA]/30 focus:border-[#1769AA] text-[#172B4D] bg-[#F7F9FC]"
                 />
               </div>
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
-                <label className="block text-xs font-bold text-gov-navy uppercase tracking-wider mb-1">
+                <label className="block text-xs font-semibold text-[#12355B] uppercase tracking-wider mb-1">
                   Min. Experience: {minExp} Years
                 </label>
                 <input
@@ -185,18 +182,18 @@ export default function CompetencyMatchingStudioPage() {
                   step="1"
                   value={minExp}
                   onChange={(e) => setMinExp(Number(e.target.value))}
-                  className="w-full accent-emerald-600"
+                  className="w-full accent-[#1769AA]"
                 />
               </div>
 
               <div>
-                <label className="block text-xs font-bold text-gov-navy uppercase tracking-wider mb-1">
+                <label className="block text-xs font-semibold text-[#12355B] uppercase tracking-wider mb-1">
                   Min. Qualification Level
                 </label>
                 <select
                   value={minQual}
                   onChange={(e) => setMinQual(e.target.value)}
-                  className="w-full px-3 py-2 text-xs rounded-lg border border-gov-slate-300 focus:outline-none focus:border-emerald-500 bg-white"
+                  className="w-full px-3 py-2 text-xs rounded-lg border border-[#E2E8F0] focus:outline-none focus:ring-2 focus:ring-[#1769AA]/30 focus:border-[#1769AA] bg-[#F7F9FC] text-[#172B4D]"
                 >
                   <option value="Bachelor">Bachelor Degree</option>
                   <option value="Master">Master Degree</option>
@@ -206,7 +203,7 @@ export default function CompetencyMatchingStudioPage() {
             </div>
 
             <div>
-              <label className="block text-xs font-bold text-gov-navy uppercase tracking-wider mb-1">
+              <label className="block text-xs font-semibold text-[#12355B] uppercase tracking-wider mb-1">
                 Required Subject Domains (Comma-separated)
               </label>
               <input
@@ -214,20 +211,20 @@ export default function CompetencyMatchingStudioPage() {
                 required
                 value={subjects}
                 onChange={(e) => setSubjects(e.target.value)}
-                className="w-full px-3 py-2 text-xs rounded-lg border border-gov-slate-300 focus:outline-none focus:border-emerald-500"
+                className="w-full px-3 py-2 text-xs rounded-lg border border-[#E2E8F0] focus:outline-none focus:ring-2 focus:ring-[#1769AA]/30 focus:border-[#1769AA] text-[#172B4D] bg-[#F7F9FC]"
               />
             </div>
 
             {/* Required Skills Matrix */}
             <div className="space-y-3 pt-2">
               <div className="flex items-center justify-between">
-                <label className="block text-xs font-bold text-gov-navy uppercase tracking-wider">
+                <label className="block text-xs font-semibold text-[#12355B] uppercase tracking-wider">
                   Required Skills & Importance Weights (1-5)
                 </label>
                 <button
                   type="button"
                   onClick={handleAddSkill}
-                  className="text-xs font-bold text-emerald-600 hover:text-emerald-700 flex items-center gap-1"
+                  className="text-xs font-semibold text-[#1769AA] hover:text-[#12355B] flex items-center gap-1"
                 >
                   <Plus className="w-3.5 h-3.5" /> Add Skill
                 </button>
@@ -235,7 +232,7 @@ export default function CompetencyMatchingStudioPage() {
 
               <div className="space-y-2.5">
                 {skills.map((s, idx) => (
-                  <div key={idx} className="p-3 bg-gov-slate-50 rounded-xl border border-gov-slate-200 space-y-2">
+                  <div key={idx} className="p-3 bg-[#F7F9FC] rounded-lg border border-[#E2E8F0] space-y-2">
                     <input
                       type="text"
                       required
@@ -246,12 +243,12 @@ export default function CompetencyMatchingStudioPage() {
                         setSkills(next);
                       }}
                       placeholder="e.g. Cybersecurity & Incident Response"
-                      className="w-full px-3 py-1.5 text-xs rounded-lg border border-gov-slate-300 focus:outline-none focus:border-emerald-500"
+                      className="w-full px-3 py-1.5 text-xs rounded-lg border border-[#E2E8F0] focus:outline-none focus:ring-2 focus:ring-[#1769AA]/30 focus:border-[#1769AA] bg-white text-[#172B4D]"
                     />
 
-                    <div className="grid grid-cols-2 gap-4 text-[11px] text-gov-slate-600">
+                    <div className="grid grid-cols-2 gap-4 text-[11px] text-[#64748B]">
                       <div>
-                        <span>Target Level (1-5): <b>{s.min_level}</b></span>
+                        <span>Target Level (1-5): <b className="text-[#172B4D]">{s.min_level}</b></span>
                         <input
                           type="range"
                           min="1"
@@ -262,11 +259,11 @@ export default function CompetencyMatchingStudioPage() {
                             next[idx].min_level = Number(e.target.value);
                             setSkills(next);
                           }}
-                          className="w-full accent-blue-600"
+                          className="w-full accent-[#1769AA]"
                         />
                       </div>
                       <div>
-                        <span>Weight Importance (1-5): <b>{s.weight}</b></span>
+                        <span>Weight Importance (1-5): <b className="text-[#172B4D]">{s.weight}</b></span>
                         <input
                           type="range"
                           min="1"
@@ -277,7 +274,7 @@ export default function CompetencyMatchingStudioPage() {
                             next[idx].weight = Number(e.target.value);
                             setSkills(next);
                           }}
-                          className="w-full accent-emerald-600"
+                          className="w-full accent-[#00A6A6]"
                         />
                       </div>
                     </div>
@@ -286,11 +283,11 @@ export default function CompetencyMatchingStudioPage() {
               </div>
             </div>
 
-            <div className="pt-4 border-t border-gov-slate-100">
+            <div className="pt-3 border-t border-[#E2E8F0]">
               <button
                 type="submit"
                 disabled={createMutation.isPending || isMatching}
-                className="w-full py-3 rounded-xl bg-emerald-600 hover:bg-emerald-500 disabled:opacity-50 text-white font-bold text-xs shadow-md transition flex items-center justify-center gap-2"
+                className="w-full py-2.5 rounded-lg bg-[#1769AA] hover:bg-[#12355B] disabled:opacity-50 text-white font-semibold text-xs shadow-sm transition flex items-center justify-center gap-2"
               >
                 <Play className="w-4 h-4 fill-white" />
                 {createMutation.isPending || isMatching ? "Computing Match Scores..." : "Run Deterministic Matching Algorithm"}
@@ -301,13 +298,13 @@ export default function CompetencyMatchingStudioPage() {
 
         {/* Right Column: Live Ranked Matching Results with Explainability */}
         <div className="lg:col-span-6 space-y-6">
-          <div className="bg-white p-6 sm:p-8 rounded-2xl border border-gov-slate-200 shadow-sm space-y-5">
-            <div className="flex items-center justify-between border-b border-gov-slate-100 pb-3">
+          <div className="bg-white p-6 sm:p-7 rounded-xl border border-[#E2E8F0] shadow-[0_4px_20px_rgba(18,53,91,0.06)] space-y-5">
+            <div className="flex items-center justify-between border-b border-[#E2E8F0] pb-3">
               <div>
-                <h2 className="text-base font-bold text-gov-navy">
+                <h2 className="text-sm font-bold text-[#12355B]">
                   2. Ranked Candidate Recommendations
                 </h2>
-                <p className="text-xs text-gov-slate-500">
+                <p className="text-xs text-[#64748B]">
                   {matchData ? `${matchData.total_candidates_evaluated} candidates evaluated against deterministic criteria` : "Run algorithm to view ranked candidates"}
                 </p>
               </div>
@@ -315,73 +312,73 @@ export default function CompetencyMatchingStudioPage() {
 
             {isMatching ? (
               <div className="p-12 text-center space-y-3">
-                <div className="w-10 h-10 rounded-full border-4 border-emerald-600 border-t-transparent animate-spin mx-auto"></div>
-                <div className="font-bold text-xs text-gov-navy">Evaluating formula components across registry...</div>
+                <div className="w-8 h-8 rounded-full border-3 border-[#1769AA] border-t-transparent animate-spin mx-auto"></div>
+                <div className="font-semibold text-xs text-[#12355B]">Evaluating formula components across registry...</div>
               </div>
             ) : matchData?.ranked_trainers.length ? (
-              <div className="space-y-5">
+              <div className="space-y-4">
                 {matchData.ranked_trainers.map((candidate) => (
                   <div
                     key={candidate.trainer_id}
-                    className={`p-5 rounded-2xl border transition space-y-4 ${
+                    className={`p-4 sm:p-5 rounded-xl border transition space-y-3.5 ${
                       candidate.rank === 1
-                        ? "border-emerald-400 bg-gradient-to-br from-emerald-50/50 to-teal-50/30 shadow-md ring-2 ring-emerald-500/20"
-                        : "border-gov-slate-200 bg-white"
+                        ? "border-[#00A6A6] bg-[#DFF5F3]/30 shadow-sm"
+                        : "border-[#E2E8F0] bg-white"
                     }`}
                   >
                     {/* Header */}
                     <div className="flex items-start justify-between gap-3">
                       <div className="flex items-center gap-3">
-                        <div className={`w-9 h-9 rounded-xl font-black text-xs flex items-center justify-center shrink-0 ${
+                        <div className={`w-8 h-8 rounded-lg font-bold text-xs flex items-center justify-center shrink-0 ${
                           candidate.rank === 1
-                            ? "bg-emerald-600 text-white shadow-sm"
-                            : "bg-gov-slate-200 text-gov-navy"
+                            ? "bg-[#00A6A6] text-white shadow-sm"
+                            : "bg-[#F7F9FC] border border-[#E2E8F0] text-[#12355B]"
                         }`}>
                           #{candidate.rank}
                         </div>
                         <div>
-                          <div className="font-bold text-sm text-gov-navy">{candidate.trainer_name}</div>
-                          <div className="text-[11px] text-gov-slate-500">{candidate.organization || "Accredited Instructor"}</div>
+                          <div className="font-bold text-sm text-[#12355B]">{candidate.trainer_name}</div>
+                          <div className="text-[11px] text-[#64748B]">{candidate.organization || "Accredited Instructor"}</div>
                         </div>
                       </div>
 
                       {/* Score Badge */}
                       <div className="text-right">
-                        <div className="text-[10px] text-gov-slate-400 uppercase font-bold">Match Score</div>
-                        <div className="text-xl font-black text-emerald-700 tracking-tight">
-                          {candidate.total_score}<span className="text-xs font-bold text-gov-slate-400">/100</span>
+                        <div className="text-[10px] text-[#64748B] uppercase font-semibold">Match Score</div>
+                        <div className="text-lg font-bold text-[#16875D] tracking-tight">
+                          {candidate.total_score}<span className="text-xs font-normal text-[#64748B]">/100</span>
                         </div>
                       </div>
                     </div>
 
                     {/* Component Breakdown Bars */}
-                    <div className="space-y-1.5 text-[11px] bg-white p-3.5 rounded-xl border border-gov-slate-200">
-                      <div className="font-bold text-gov-navy text-[10px] uppercase tracking-wider mb-1">
+                    <div className="space-y-1.5 text-[11px] bg-[#F7F9FC] p-3 rounded-lg border border-[#E2E8F0]">
+                      <div className="font-semibold text-[#12355B] text-[10px] uppercase tracking-wider mb-1">
                         Formula Component Breakdown
                       </div>
 
-                      <div className="flex justify-between items-center text-gov-slate-600">
+                      <div className="flex justify-between items-center text-[#64748B]">
                         <span>Skills Coverage (40%)</span>
-                        <span className="font-bold text-gov-navy">{Math.round(candidate.breakdown.s_skill * 100)}%</span>
+                        <span className="font-semibold text-[#12355B]">{Math.round(candidate.breakdown.s_skill * 100)}%</span>
                       </div>
-                      <div className="w-full bg-gov-slate-100 rounded-full h-1.5 overflow-hidden">
-                        <div className="bg-emerald-500 h-1.5 rounded-full" style={{ width: `${candidate.breakdown.s_skill * 100}%` }}></div>
+                      <div className="w-full bg-[#E2E8F0] rounded-full h-1.5 overflow-hidden">
+                        <div className="bg-[#1769AA] h-1.5 rounded-full" style={{ width: `${candidate.breakdown.s_skill * 100}%` }}></div>
                       </div>
 
-                      <div className="flex justify-between items-center text-gov-slate-600 pt-1">
+                      <div className="flex justify-between items-center text-[#64748B] pt-1">
                         <span>Subject Domain Overlap (20%)</span>
-                        <span className="font-bold text-gov-navy">{Math.round(candidate.breakdown.s_subject * 100)}%</span>
+                        <span className="font-semibold text-[#12355B]">{Math.round(candidate.breakdown.s_subject * 100)}%</span>
                       </div>
-                      <div className="w-full bg-gov-slate-100 rounded-full h-1.5 overflow-hidden">
-                        <div className="bg-blue-500 h-1.5 rounded-full" style={{ width: `${candidate.breakdown.s_subject * 100}%` }}></div>
+                      <div className="w-full bg-[#E2E8F0] rounded-full h-1.5 overflow-hidden">
+                        <div className="bg-[#00A6A6] h-1.5 rounded-full" style={{ width: `${candidate.breakdown.s_subject * 100}%` }}></div>
                       </div>
 
-                      <div className="flex justify-between items-center text-gov-slate-600 pt-1">
+                      <div className="flex justify-between items-center text-[#64748B] pt-1">
                         <span>Experience Adequacy (15%)</span>
-                        <span className="font-bold text-gov-navy">{candidate.experience_years} Years ({Math.round(candidate.breakdown.s_experience * 100)}%)</span>
+                        <span className="font-semibold text-[#12355B]">{candidate.experience_years} Years ({Math.round(candidate.breakdown.s_experience * 100)}%)</span>
                       </div>
-                      <div className="w-full bg-gov-slate-100 rounded-full h-1.5 overflow-hidden">
-                        <div className="bg-purple-500 h-1.5 rounded-full" style={{ width: `${candidate.breakdown.s_experience * 100}%` }}></div>
+                      <div className="w-full bg-[#E2E8F0] rounded-full h-1.5 overflow-hidden">
+                        <div className="bg-[#16875D] h-1.5 rounded-full" style={{ width: `${candidate.breakdown.s_experience * 100}%` }}></div>
                       </div>
                     </div>
 
@@ -389,12 +386,12 @@ export default function CompetencyMatchingStudioPage() {
                     <div className="space-y-1.5 text-xs">
                       <div className="flex flex-wrap gap-1.5">
                         {candidate.matched_skills.map((s) => (
-                          <span key={s} className="px-2 py-0.5 rounded text-[10px] font-bold bg-emerald-100 text-emerald-800 flex items-center gap-1">
-                            <CheckCircle2 className="w-3 h-3" /> {s}
+                          <span key={s} className="px-2 py-0.5 rounded text-[10px] font-medium bg-[#E8F8F0] text-[#16875D] border border-[#16875D]/20 flex items-center gap-1">
+                            <CheckCircle2 className="w-3 h-3 text-[#16875D]" /> {s}
                           </span>
                         ))}
                         {candidate.missing_skills.map((s) => (
-                          <span key={s} className="px-2 py-0.5 rounded text-[10px] font-semibold bg-rose-50 text-rose-700 border border-rose-200">
+                          <span key={s} className="px-2 py-0.5 rounded text-[10px] font-medium bg-[#FDF2F2] text-[#D64545] border border-[#D64545]/20">
                             Missing: {s}
                           </span>
                         ))}
@@ -402,16 +399,16 @@ export default function CompetencyMatchingStudioPage() {
                     </div>
 
                     {/* Explainability Narrative */}
-                    <div className="p-3 bg-gov-slate-50 rounded-xl border border-gov-slate-200 text-xs text-gov-slate-700">
-                      <span className="font-bold text-gov-navy text-[11px] block mb-0.5">Auditable Justification:</span>
-                      <p className="leading-relaxed">{candidate.explanation}</p>
+                    <div className="p-3 bg-white rounded-lg border border-[#E2E8F0] text-xs text-[#172B4D]">
+                      <span className="font-semibold text-[#12355B] text-[11px] block mb-0.5">Auditable Justification:</span>
+                      <p className="text-[#64748B] leading-relaxed">{candidate.explanation}</p>
                     </div>
                   </div>
                 ))}
               </div>
             ) : (
-              <div className="p-12 text-center text-gov-slate-500 text-xs space-y-2">
-                <Layers className="w-8 h-8 text-gov-slate-300 mx-auto" />
+              <div className="p-12 text-center text-[#64748B] text-xs space-y-2">
+                <Layers className="w-8 h-8 text-[#64748B]/40 mx-auto" />
                 <p>Click &quot;Run Deterministic Matching Algorithm&quot; to compute candidate rankings.</p>
               </div>
             )}

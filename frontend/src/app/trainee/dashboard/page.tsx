@@ -12,7 +12,6 @@ import {
   BookOpen,
   CheckCircle2,
   Clock,
-  FileCheck,
   GraduationCap,
   Play,
   TrendingUp,
@@ -40,24 +39,24 @@ export default function TraineeDashboardPage() {
   });
 
   return (
-    <div className="space-y-8">
+    <div className="space-y-6 pb-12">
       {/* Welcome Banner */}
-      <div className="bg-gradient-to-r from-gov-navy-dark via-gov-navy to-gov-slate-900 text-white p-6 sm:p-8 rounded-2xl border border-gov-navy-light/40 shadow-sm flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
-        <div className="space-y-1">
-          <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-emerald-950 text-emerald-300 text-xs font-semibold border border-emerald-500/30">
-            <BookOpen className="w-3.5 h-3.5" />
+      <div className="bg-white p-6 sm:p-7 rounded-xl border border-[#E2E8F0] shadow-[0_4px_20px_rgba(18,53,91,0.06)] flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+        <div className="space-y-1.5">
+          <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-[#DFF5F3] text-[#12355B] text-xs font-semibold border border-[#00A6A6]/20">
+            <BookOpen className="w-3.5 h-3.5 text-[#00A6A6]" />
             <span>Learner Portal · Active Session</span>
           </div>
-          <h1 className="text-2xl font-extrabold tracking-tight text-white">
+          <h1 className="text-xl sm:text-2xl font-bold tracking-tight text-[#12355B]">
             Welcome back, {user?.full_name}
           </h1>
-          <p className="text-xs text-gov-slate-300">
-            Department: <span className="text-white font-medium">{user?.organization || "Government Directorate"}</span>
+          <p className="text-xs sm:text-sm text-[#64748B]">
+            Department: <span className="text-[#172B4D] font-medium">{user?.organization || "Government Directorate"}</span>
           </p>
         </div>
         <Link
           href="/courses"
-          className="px-4 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs shadow-md transition flex items-center gap-1.5"
+          className="px-4 py-2 rounded-lg bg-[#1769AA] hover:bg-[#12355B] text-white font-semibold text-xs shadow-sm transition flex items-center gap-1.5 shrink-0"
         >
           <GraduationCap className="w-4 h-4" /> Browse Catalog
         </Link>
@@ -65,63 +64,63 @@ export default function TraineeDashboardPage() {
 
       {/* KPI Cards Strip */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        <div className="bg-white p-5 rounded-xl border border-gov-slate-200 shadow-sm flex items-center justify-between">
+        <div className="bg-white p-5 rounded-xl border border-[#E2E8F0] shadow-[0_4px_20px_rgba(18,53,91,0.06)] flex items-center justify-between">
           <div>
-            <div className="text-xs font-semibold text-gov-slate-500">Enrolled Courses</div>
-            <div className="text-2xl font-black text-gov-navy mt-1">
+            <div className="text-xs font-medium text-[#64748B]">Enrolled Courses</div>
+            <div className="text-2xl font-bold text-[#12355B] mt-1">
               {stats?.enrolled_courses_count || myCourses?.length || 1}
             </div>
           </div>
-          <div className="w-10 h-10 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center">
+          <div className="w-10 h-10 rounded-lg bg-[#F7F9FC] border border-[#E2E8F0] text-[#1769AA] flex items-center justify-center">
             <BookOpen className="w-5 h-5" />
           </div>
         </div>
 
-        <div className="bg-white p-5 rounded-xl border border-gov-slate-200 shadow-sm flex items-center justify-between">
+        <div className="bg-white p-5 rounded-xl border border-[#E2E8F0] shadow-[0_4px_20px_rgba(18,53,91,0.06)] flex items-center justify-between">
           <div>
-            <div className="text-xs font-semibold text-gov-slate-500">Completed Courses</div>
-            <div className="text-2xl font-black text-emerald-600 mt-1">
+            <div className="text-xs font-medium text-[#64748B]">Completed Courses</div>
+            <div className="text-2xl font-bold text-[#16875D] mt-1">
               {stats?.completed_courses_count || 1}
             </div>
           </div>
-          <div className="w-10 h-10 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center">
+          <div className="w-10 h-10 rounded-lg bg-[#E8F8F0] text-[#16875D] flex items-center justify-center">
             <CheckCircle2 className="w-5 h-5" />
           </div>
         </div>
 
-        <div className="bg-white p-5 rounded-xl border border-gov-slate-200 shadow-sm flex items-center justify-between">
+        <div className="bg-white p-5 rounded-xl border border-[#E2E8F0] shadow-[0_4px_20px_rgba(18,53,91,0.06)] flex items-center justify-between">
           <div>
-            <div className="text-xs font-semibold text-gov-slate-500">Certificates Earned</div>
-            <div className="text-2xl font-black text-amber-600 mt-1">
+            <div className="text-xs font-medium text-[#64748B]">Certificates Earned</div>
+            <div className="text-2xl font-bold text-[#00A6A6] mt-1">
               {stats?.certificates_earned_count || certificates?.length || 1}
             </div>
           </div>
-          <div className="w-10 h-10 rounded-lg bg-amber-50 text-amber-600 flex items-center justify-center">
+          <div className="w-10 h-10 rounded-lg bg-[#DFF5F3] text-[#00A6A6] flex items-center justify-center">
             <Award className="w-5 h-5" />
           </div>
         </div>
 
-        <div className="bg-white p-5 rounded-xl border border-gov-slate-200 shadow-sm flex items-center justify-between">
+        <div className="bg-white p-5 rounded-xl border border-[#E2E8F0] shadow-[0_4px_20px_rgba(18,53,91,0.06)] flex items-center justify-between">
           <div>
-            <div className="text-xs font-semibold text-gov-slate-500">Learning Hours</div>
-            <div className="text-2xl font-black text-gov-navy mt-1">
+            <div className="text-xs font-medium text-[#64748B]">Learning Hours</div>
+            <div className="text-2xl font-bold text-[#1769AA] mt-1">
               {stats?.total_learning_hours || 4.5}h
             </div>
           </div>
-          <div className="w-10 h-10 rounded-lg bg-purple-50 text-purple-600 flex items-center justify-center">
+          <div className="w-10 h-10 rounded-lg bg-[#F7F9FC] border border-[#E2E8F0] text-[#1769AA] flex items-center justify-center">
             <Clock className="w-5 h-5" />
           </div>
         </div>
       </div>
 
       {/* In Progress Courses */}
-      <div className="bg-white p-6 rounded-2xl border border-gov-slate-200 shadow-sm space-y-4">
-        <div className="flex items-center justify-between border-b border-gov-slate-100 pb-3">
-          <h2 className="text-base font-bold text-gov-navy flex items-center gap-2">
-            <BookOpen className="w-4 h-4 text-emerald-600" />
+      <div className="bg-white p-6 sm:p-7 rounded-xl border border-[#E2E8F0] shadow-[0_4px_20px_rgba(18,53,91,0.06)] space-y-4">
+        <div className="flex items-center justify-between border-b border-[#E2E8F0] pb-3">
+          <h2 className="text-base font-bold text-[#12355B] flex items-center gap-2">
+            <BookOpen className="w-4 h-4 text-[#1769AA]" />
             My Active Learning Courses ({myCourses?.length || 0})
           </h2>
-          <Link href="/courses" className="text-xs font-bold text-emerald-600 hover:underline">
+          <Link href="/courses" className="text-xs font-semibold text-[#1769AA] hover:underline">
             Explore More
           </Link>
         </div>
@@ -130,38 +129,38 @@ export default function TraineeDashboardPage() {
           {myCourses?.map((course) => (
             <div
               key={course.id}
-              className="p-5 rounded-xl border border-gov-slate-200 hover:border-emerald-300 bg-gov-slate-50/60 transition space-y-3 flex flex-col justify-between"
+              className="p-5 rounded-xl border border-[#E2E8F0] hover:border-[#1769AA]/40 bg-[#F7F9FC] transition space-y-3 flex flex-col justify-between"
             >
-              <div className="space-y-2">
+              <div className="space-y-2.5">
                 <div className="flex items-center justify-between">
-                  <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-emerald-100 text-emerald-800 uppercase">
+                  <span className="text-[10px] font-semibold px-2.5 py-0.5 rounded-full bg-[#DFF5F3] text-[#12355B] border border-[#00A6A6]/20 uppercase">
                     {course.category_name || "Governance"}
                   </span>
-                  <span className="text-xs font-bold text-gov-navy">
+                  <span className="text-xs font-semibold text-[#12355B]">
                     {course.enrollment_progress || 0}% Complete
                   </span>
                 </div>
 
-                <h3 className="font-bold text-sm text-gov-navy leading-snug">
+                <h3 className="font-bold text-sm text-[#12355B] leading-snug">
                   {course.title}
                 </h3>
 
                 {/* Progress bar */}
-                <div className="w-full bg-gov-slate-200 rounded-full h-2 overflow-hidden">
+                <div className="w-full bg-[#E2E8F0] rounded-full h-1.5 overflow-hidden">
                   <div
-                    className="bg-emerald-600 h-2 rounded-full transition-all"
+                    className="bg-[#1769AA] h-1.5 rounded-full transition-all"
                     style={{ width: `${course.enrollment_progress || 0}%` }}
                   ></div>
                 </div>
               </div>
 
-              <div className="pt-2 flex items-center justify-between border-t border-gov-slate-200">
-                <span className="text-[11px] text-gov-slate-500">
+              <div className="pt-3 flex items-center justify-between border-t border-[#E2E8F0]">
+                <span className="text-[11px] text-[#64748B]">
                   {course.modules?.length || 3} Modules & Assessment
                 </span>
                 <Link
                   href={`/trainee/courses/${course.id}/learn`}
-                  className="px-3 py-1.5 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs transition flex items-center gap-1"
+                  className="px-3.5 py-1.5 rounded-lg bg-[#1769AA] hover:bg-[#12355B] text-white font-semibold text-xs shadow-sm transition flex items-center gap-1"
                 >
                   <Play className="w-3.5 h-3.5 fill-white" /> Continue Player
                 </Link>
@@ -173,13 +172,13 @@ export default function TraineeDashboardPage() {
 
       {/* Earned Certificates Teaser */}
       {certificates && certificates.length > 0 && (
-        <div className="bg-white p-6 rounded-2xl border border-gov-slate-200 shadow-sm space-y-4">
-          <div className="flex items-center justify-between border-b border-gov-slate-100 pb-3">
-            <h2 className="text-base font-bold text-gov-navy flex items-center gap-2">
-              <Award className="w-4 h-4 text-amber-500" />
+        <div className="bg-white p-6 sm:p-7 rounded-xl border border-[#E2E8F0] shadow-[0_4px_20px_rgba(18,53,91,0.06)] space-y-4">
+          <div className="flex items-center justify-between border-b border-[#E2E8F0] pb-3">
+            <h2 className="text-base font-bold text-[#12355B] flex items-center gap-2">
+              <Award className="w-4 h-4 text-[#00A6A6]" />
               Earned Certifications ({certificates.length})
             </h2>
-            <Link href="/trainee/certificates" className="text-xs font-bold text-emerald-600 hover:underline">
+            <Link href="/trainee/certificates" className="text-xs font-semibold text-[#1769AA] hover:underline">
               View All Certificates
             </Link>
           </div>
@@ -188,20 +187,20 @@ export default function TraineeDashboardPage() {
             {certificates.map((c) => (
               <div
                 key={c.id}
-                className="p-4 rounded-xl bg-amber-50/50 border border-amber-200 flex items-center justify-between"
+                className="p-4 rounded-xl bg-[#F7F9FC] border border-[#E2E8F0] flex items-center justify-between"
               >
                 <div className="space-y-1">
-                  <div className="text-[11px] font-mono font-bold text-amber-900 flex items-center gap-1">
-                    <Award className="w-3.5 h-3.5 text-amber-600" /> {c.certificate_code}
+                  <div className="text-[11px] font-mono font-bold text-[#12355B] flex items-center gap-1">
+                    <Award className="w-3.5 h-3.5 text-[#00A6A6]" /> {c.certificate_code}
                   </div>
-                  <div className="text-xs font-bold text-gov-navy">{c.course_title}</div>
-                  <div className="text-[10px] text-gov-slate-500">
+                  <div className="text-xs font-semibold text-[#172B4D]">{c.course_title}</div>
+                  <div className="text-[10px] text-[#64748B]">
                     Issued: {new Date(c.issue_date).toLocaleDateString()}
                   </div>
                 </div>
                 <Link
                   href={`/verify/${c.certificate_code}`}
-                  className="px-3 py-1.5 rounded-lg bg-gov-navy text-white text-xs font-bold hover:bg-gov-navy-dark transition"
+                  className="px-3 py-1.5 rounded-lg bg-[#1769AA] hover:bg-[#12355B] text-white text-xs font-semibold transition shadow-sm"
                 >
                   View Seal
                 </Link>

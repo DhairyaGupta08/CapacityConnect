@@ -49,7 +49,7 @@ export default function CourseDetailPage({
   if (isLoading) {
     return (
       <div className="flex-1 max-w-7xl mx-auto p-8 flex items-center justify-center">
-        <div className="animate-pulse text-gov-navy font-bold text-sm">Loading course curriculum...</div>
+        <div className="text-[#12355B] font-bold text-sm animate-pulse">Loading course curriculum...</div>
       </div>
     );
   }
@@ -57,8 +57,8 @@ export default function CourseDetailPage({
   if (!course) {
     return (
       <div className="flex-1 max-w-7xl mx-auto p-8 text-center space-y-4">
-        <h2 className="text-xl font-bold text-gov-navy">Course Not Found</h2>
-        <Link href="/courses" className="text-xs font-bold text-emerald-600 hover:underline">
+        <h2 className="text-xl font-bold text-[#12355B]">Course Not Found</h2>
+        <Link href="/courses" className="text-xs font-bold text-[#1769AA] hover:underline">
           Return to Course Catalog
         </Link>
       </div>
@@ -78,45 +78,45 @@ export default function CourseDetailPage({
   };
 
   return (
-    <div className="flex-1 bg-gov-slate-50 pb-16">
+    <div className="flex-1 bg-[#F7F9FC] pb-16">
       {/* Header Banner */}
-      <div className="bg-gradient-to-r from-gov-navy-dark via-gov-navy to-gov-slate-900 text-white py-12 px-4 sm:px-6 lg:px-8 border-b border-gov-navy-light/40">
+      <div className="bg-[#12355B] text-white py-12 px-4 sm:px-6 lg:px-8 border-b border-[#1D4B7D]">
         <div className="max-w-7xl mx-auto space-y-4">
           <Link
             href="/courses"
-            className="inline-flex items-center gap-1.5 text-xs text-gov-slate-300 hover:text-white transition"
+            className="inline-flex items-center gap-1.5 text-xs text-slate-300 hover:text-white transition"
           >
             <ArrowLeft className="w-3.5 h-3.5" /> Back to Catalog
           </Link>
 
           <div className="flex flex-wrap items-center gap-2">
-            <span className="px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-emerald-950 text-emerald-300 border border-emerald-500/40">
+            <span className="px-2.5 py-0.5 rounded-md text-[11px] font-semibold bg-[#DFF5F3] text-[#12355B]">
               {course.category_name || "Governance"}
             </span>
-            <span className="px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-gov-navy text-gov-slate-200 border border-gov-slate-700 capitalize">
+            <span className="px-2.5 py-0.5 rounded-md text-[11px] font-semibold bg-[#1D4B7D] text-slate-200 capitalize">
               Level: {course.level}
             </span>
           </div>
 
-          <h1 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white tracking-tight max-w-3xl">
+          <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white tracking-tight max-w-3xl leading-tight">
             {course.title}
           </h1>
 
-          <p className="text-xs sm:text-sm text-gov-slate-300 max-w-3xl leading-relaxed">
+          <p className="text-xs sm:text-sm text-slate-300 max-w-3xl leading-relaxed">
             {course.short_description || course.description}
           </p>
 
-          <div className="flex flex-wrap items-center gap-6 text-xs text-gov-slate-300 pt-2">
+          <div className="flex flex-wrap items-center gap-6 text-xs text-slate-300 pt-2">
             <div className="flex items-center gap-1.5">
-              <Clock className="w-4 h-4 text-emerald-400" />
+              <Clock className="w-4 h-4 text-[#00A6A6]" />
               <span>{course.estimated_hours} Hours Total Duration</span>
             </div>
             <div className="flex items-center gap-1.5">
-              <BookOpen className="w-4 h-4 text-emerald-400" />
+              <BookOpen className="w-4 h-4 text-[#00A6A6]" />
               <span>{course.modules?.length || 3} Curriculum Modules</span>
             </div>
             <div className="flex items-center gap-1.5">
-              <Award className="w-4 h-4 text-amber-400" />
+              <Award className="w-4 h-4 text-[#D89B18]" />
               <span>Certified Digital Credential</span>
             </div>
           </div>
@@ -128,59 +128,59 @@ export default function CourseDetailPage({
         {/* Left Column: Curriculum tree & description */}
         <div className="lg:col-span-8 space-y-8">
           {/* Detailed Overview */}
-          <div className="bg-white p-6 rounded-xl border border-gov-slate-200 shadow-sm space-y-3">
-            <h2 className="text-base font-bold text-gov-navy border-b border-gov-slate-100 pb-2">
+          <div className="bg-white p-6 rounded-xl border border-[#E2E8F0] shadow-sm space-y-3">
+            <h2 className="text-base font-bold text-[#12355B] border-b border-[#E2E8F0] pb-2">
               Course Curriculum & Scope
             </h2>
-            <p className="text-xs sm:text-sm text-gov-slate-700 leading-relaxed whitespace-pre-line">
+            <p className="text-xs sm:text-sm text-[#172B4D] leading-relaxed whitespace-pre-line">
               {course.description}
             </p>
           </div>
 
           {/* Modules Accordion Tree */}
-          <div className="bg-white p-6 rounded-xl border border-gov-slate-200 shadow-sm space-y-4">
-            <div className="flex items-center justify-between border-b border-gov-slate-100 pb-3">
-              <h2 className="text-base font-bold text-gov-navy">
+          <div className="bg-white p-6 rounded-xl border border-[#E2E8F0] shadow-sm space-y-4">
+            <div className="flex items-center justify-between border-b border-[#E2E8F0] pb-3">
+              <h2 className="text-base font-bold text-[#12355B]">
                 Module Breakdown ({course.modules?.length || 0})
               </h2>
-              <span className="text-xs text-gov-slate-500 font-medium">
+              <span className="text-xs text-[#64748B] font-medium">
                 Pass MCQ Exam to Receive Certificate
               </span>
             </div>
 
             <div className="space-y-4">
               {course.modules?.map((mod, idx) => (
-                <div key={mod.id} className="border border-gov-slate-200 rounded-lg overflow-hidden">
-                  <div className="bg-gov-slate-50 px-4 py-3 border-b border-gov-slate-200 flex items-center justify-between">
-                    <div className="font-bold text-xs sm:text-sm text-gov-navy flex items-center gap-2">
-                      <span className="w-6 h-6 rounded bg-gov-navy text-white text-xs flex items-center justify-center font-bold">
+                <div key={mod.id} className="border border-[#E2E8F0] rounded-lg overflow-hidden">
+                  <div className="bg-[#F7F9FC] px-4 py-3 border-b border-[#E2E8F0] flex items-center justify-between">
+                    <div className="font-bold text-xs sm:text-sm text-[#12355B] flex items-center gap-2">
+                      <span className="w-6 h-6 rounded bg-[#12355B] text-white text-xs flex items-center justify-center font-bold">
                         {idx + 1}
                       </span>
                       <span>{mod.title}</span>
                     </div>
-                    <span className="text-xs text-gov-slate-500">{mod.duration_minutes} mins</span>
+                    <span className="text-xs text-[#64748B]">{mod.duration_minutes} mins</span>
                   </div>
 
                   {mod.description && (
-                    <div className="px-4 py-2 text-xs text-gov-slate-600 bg-white border-b border-gov-slate-100">
+                    <div className="px-4 py-2 text-xs text-[#64748B] bg-white border-b border-[#E2E8F0]">
                       {mod.description}
                     </div>
                   )}
 
-                  <div className="divide-y divide-gov-slate-100 bg-white">
+                  <div className="divide-y divide-[#E2E8F0] bg-white">
                     {mod.resources?.map((res) => (
-                      <div key={res.id} className="px-4 py-2.5 flex items-center justify-between text-xs hover:bg-gov-slate-50 transition">
-                        <div className="flex items-center gap-2.5 text-gov-slate-800">
+                      <div key={res.id} className="px-4 py-2.5 flex items-center justify-between text-xs hover:bg-[#F7F9FC] transition">
+                        <div className="flex items-center gap-2.5 text-[#172B4D]">
                           {res.resource_type === "video" ? (
-                            <Video className="w-4 h-4 text-blue-600 shrink-0" />
+                            <Video className="w-4 h-4 text-[#1769AA] shrink-0" />
                           ) : res.resource_type === "pdf" ? (
-                            <FileText className="w-4 h-4 text-rose-600 shrink-0" />
+                            <FileText className="w-4 h-4 text-[#D64545] shrink-0" />
                           ) : (
-                            <FileCheck className="w-4 h-4 text-emerald-600 shrink-0" />
+                            <FileCheck className="w-4 h-4 text-[#16875D] shrink-0" />
                           )}
                           <span className="font-medium">{res.title}</span>
                         </div>
-                        <span className="text-gov-slate-400 text-[11px]">{res.duration_minutes}m</span>
+                        <span className="text-[#64748B] text-[11px]">{res.duration_minutes}m</span>
                       </div>
                     ))}
                   </div>
@@ -192,28 +192,28 @@ export default function CourseDetailPage({
 
         {/* Right Column: Enrollment Card & Instructor Details */}
         <div className="lg:col-span-4 space-y-6">
-          <div className="bg-white p-6 rounded-2xl border border-gov-slate-200 shadow-md space-y-5 sticky top-24">
+          <div className="bg-white p-6 rounded-xl border border-[#E2E8F0] shadow-card space-y-5 sticky top-24">
             <div className="space-y-2">
-              <span className="text-[11px] font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded uppercase tracking-wider">
+              <span className="text-[11px] font-bold text-[#16875D] bg-[#E8F8F0] px-2 py-0.5 rounded uppercase tracking-wider">
                 Certified Institutional Program
               </span>
-              <div className="text-2xl font-black text-gov-navy">
+              <div className="text-2xl font-bold text-[#12355B]">
                 Government Free Access
               </div>
-              <p className="text-xs text-gov-slate-500">
+              <p className="text-xs text-[#64748B]">
                 Funded under National Capacity Building Directives for institutional personnel.
               </p>
             </div>
 
             {course.is_enrolled && (
-              <div className="p-3 rounded-lg bg-emerald-50 border border-emerald-200 text-xs space-y-1">
-                <div className="flex justify-between font-bold text-emerald-900">
+              <div className="p-3 rounded-lg bg-[#EBF3FB] border border-[#1769AA]/30 text-xs space-y-1">
+                <div className="flex justify-between font-bold text-[#12355B]">
                   <span>Your Current Progress</span>
                   <span>{course.enrollment_progress || 0}%</span>
                 </div>
-                <div className="w-full bg-emerald-200 rounded-full h-2 overflow-hidden">
+                <div className="w-full bg-[#CBD5E1] rounded-full h-2 overflow-hidden">
                   <div
-                    className="bg-emerald-600 h-2 rounded-full transition-all"
+                    className="bg-[#1769AA] h-2 rounded-full transition-all"
                     style={{ width: `${course.enrollment_progress || 0}%` }}
                   ></div>
                 </div>
@@ -223,7 +223,7 @@ export default function CourseDetailPage({
             <button
               onClick={handleEnrollOrResume}
               disabled={enrollMutation.isPending}
-              className="w-full py-3 rounded-xl bg-emerald-600 hover:bg-emerald-500 disabled:opacity-50 text-white font-bold text-sm shadow-lg hover:shadow-emerald-600/30 transition flex items-center justify-center gap-2"
+              className="w-full py-3 rounded-lg bg-[#1769AA] hover:bg-[#135488] disabled:opacity-50 text-white font-semibold text-sm shadow-sm transition flex items-center justify-center gap-2"
             >
               {course.is_enrolled ? (
                 <>
@@ -236,37 +236,37 @@ export default function CourseDetailPage({
               )}
             </button>
 
-            <div className="border-t border-gov-slate-100 pt-4 space-y-2.5 text-xs text-gov-slate-600">
+            <div className="border-t border-[#E2E8F0] pt-4 space-y-2.5 text-xs text-[#64748B]">
               <div className="flex items-center gap-2 font-medium">
-                <CheckCircle2 className="w-4 h-4 text-emerald-600" />
-                <span>Includes High-Quality Video Lectures</span>
+                <CheckCircle2 className="w-4 h-4 text-[#16875D]" />
+                <span className="text-[#172B4D]">Includes High-Quality Video Lectures</span>
               </div>
               <div className="flex items-center gap-2 font-medium">
-                <CheckCircle2 className="w-4 h-4 text-emerald-600" />
-                <span>Departmental Policy Guidelines (PDF)</span>
+                <CheckCircle2 className="w-4 h-4 text-[#16875D]" />
+                <span className="text-[#172B4D]">Departmental Policy Guidelines (PDF)</span>
               </div>
               <div className="flex items-center gap-2 font-medium">
-                <CheckCircle2 className="w-4 h-4 text-emerald-600" />
-                <span>Timed 15-Minute MCQ Exam</span>
+                <CheckCircle2 className="w-4 h-4 text-[#16875D]" />
+                <span className="text-[#172B4D]">Timed 15-Minute MCQ Exam</span>
               </div>
               <div className="flex items-center gap-2 font-medium">
-                <CheckCircle2 className="w-4 h-4 text-emerald-600" />
-                <span>Publicly Verifiable QR Certificate</span>
+                <CheckCircle2 className="w-4 h-4 text-[#16875D]" />
+                <span className="text-[#172B4D]">Publicly Verifiable QR Certificate</span>
               </div>
             </div>
 
             {/* Instructor Bio */}
-            <div className="border-t border-gov-slate-100 pt-4 space-y-2">
-              <div className="text-xs font-bold text-gov-navy uppercase tracking-wider">
+            <div className="border-t border-[#E2E8F0] pt-4 space-y-2">
+              <div className="text-xs font-bold text-[#12355B] uppercase tracking-wider">
                 Course Instructor
               </div>
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-gov-navy text-white font-bold flex items-center justify-center text-sm shadow">
+                <div className="w-10 h-10 rounded-full bg-[#12355B] text-white font-bold flex items-center justify-center text-sm shadow-sm">
                   {course.trainer_name ? course.trainer_name.charAt(0) : "I"}
                 </div>
                 <div>
-                  <div className="font-bold text-xs text-gov-navy">{course.trainer_name || "Lead Instructor"}</div>
-                  <div className="text-[11px] text-gov-slate-500">Accredited Subject Matter Expert</div>
+                  <div className="font-bold text-xs text-[#12355B]">{course.trainer_name || "Lead Instructor"}</div>
+                  <div className="text-[11px] text-[#64748B]">Accredited Subject Matter Expert</div>
                 </div>
               </div>
             </div>
@@ -276,3 +276,4 @@ export default function CourseDetailPage({
     </div>
   );
 }
+

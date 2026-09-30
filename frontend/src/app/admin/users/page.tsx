@@ -36,19 +36,19 @@ export default function AdminUsersDirectoryPage() {
 
   return (
     <div className="space-y-6 pb-12">
-      <div className="border-b border-gov-slate-200 pb-4">
-        <h1 className="text-2xl font-extrabold text-gov-navy tracking-tight">
+      <div className="border-b border-[#E2E8F0] pb-4">
+        <h1 className="text-xl sm:text-2xl font-bold text-[#12355B] tracking-tight">
           National User & Personnel Directory
         </h1>
-        <p className="text-xs text-gov-slate-600">
+        <p className="text-xs sm:text-sm text-[#64748B] mt-0.5">
           Manage civil servants, subject matter trainers, and governance administrators.
         </p>
       </div>
 
       {/* Filter Bar */}
-      <div className="grid grid-cols-1 md:grid-cols-12 gap-4 items-center bg-white p-4 rounded-xl border border-gov-slate-200 shadow-sm">
+      <div className="grid grid-cols-1 md:grid-cols-12 gap-4 items-center bg-white p-4 rounded-xl border border-[#E2E8F0] shadow-[0_4px_20px_rgba(18,53,91,0.06)]">
         <div className="md:col-span-8 relative">
-          <Search className="w-4 h-4 text-gov-slate-400 absolute left-3 top-3" />
+          <Search className="w-4 h-4 text-[#64748B] absolute left-3 top-2.5" />
           <input
             type="text"
             value={searchQuery}
@@ -57,7 +57,7 @@ export default function AdminUsersDirectoryPage() {
               setPage(1);
             }}
             placeholder="Search by officer name, email address, or ministry..."
-            className="w-full pl-9 pr-4 py-2 text-xs rounded-lg border border-gov-slate-300 focus:outline-none focus:border-emerald-500 text-gov-navy"
+            className="w-full pl-9 pr-4 py-2 text-xs rounded-lg border border-[#E2E8F0] focus:outline-none focus:ring-2 focus:ring-[#1769AA]/30 focus:border-[#1769AA] text-[#172B4D] bg-[#F7F9FC]"
           />
         </div>
 
@@ -68,7 +68,7 @@ export default function AdminUsersDirectoryPage() {
               setRoleFilter(e.target.value);
               setPage(1);
             }}
-            className="w-full px-3 py-2 text-xs rounded-lg border border-gov-slate-300 focus:outline-none focus:border-emerald-500 bg-white"
+            className="w-full px-3 py-2 text-xs rounded-lg border border-[#E2E8F0] focus:outline-none focus:ring-2 focus:ring-[#1769AA]/30 focus:border-[#1769AA] bg-[#F7F9FC] text-[#172B4D]"
           >
             <option value="">All Roles</option>
             <option value="trainee">Civil Servants (Trainee)</option>
@@ -79,10 +79,10 @@ export default function AdminUsersDirectoryPage() {
       </div>
 
       {/* Users Table */}
-      <div className="bg-white rounded-2xl border border-gov-slate-200 overflow-hidden shadow-sm">
+      <div className="bg-white rounded-xl border border-[#E2E8F0] overflow-hidden shadow-[0_4px_20px_rgba(18,53,91,0.06)]">
         <div className="overflow-x-auto">
           <table className="w-full text-left text-xs">
-            <thead className="bg-gov-slate-50 text-gov-slate-500 font-bold uppercase text-[10px] border-b border-gov-slate-200">
+            <thead className="bg-[#F7F9FC] text-[#64748B] font-semibold uppercase text-[10px] border-b border-[#E2E8F0]">
               <tr>
                 <th className="px-6 py-3">Personnel Name</th>
                 <th className="px-6 py-3">Email Address</th>
@@ -92,33 +92,33 @@ export default function AdminUsersDirectoryPage() {
                 <th className="px-6 py-3 text-right">Actions</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-gov-slate-100">
+            <tbody className="divide-y divide-[#E2E8F0]">
               {isLoading ? (
                 <tr>
-                  <td colSpan={6} className="p-8 text-center text-gov-slate-500 animate-pulse">
+                  <td colSpan={6} className="p-8 text-center text-[#64748B] animate-pulse">
                     Loading personnel registry...
                   </td>
                 </tr>
               ) : usersData?.items.map((u) => (
-                <tr key={u.id} className="hover:bg-gov-slate-50/60 transition">
-                  <td className="px-6 py-3.5 font-bold text-gov-navy flex items-center gap-2">
-                    <div className="w-7 h-7 rounded-full bg-gov-navy text-white text-[11px] font-bold flex items-center justify-center">
+                <tr key={u.id} className="hover:bg-[#F7F9FC] transition">
+                  <td className="px-6 py-3.5 font-semibold text-[#172B4D] flex items-center gap-2.5">
+                    <div className="w-7 h-7 rounded-full bg-[#12355B] text-white text-[11px] font-bold flex items-center justify-center">
                       {u.full_name.charAt(0)}
                     </div>
                     <span>{u.full_name}</span>
                   </td>
-                  <td className="px-6 py-3.5 font-mono text-[11px] text-gov-slate-500">{u.email}</td>
-                  <td className="px-6 py-3.5 text-gov-slate-600">{u.organization || "—"}</td>
+                  <td className="px-6 py-3.5 font-mono text-[11px] text-[#64748B]">{u.email}</td>
+                  <td className="px-6 py-3.5 text-[#64748B]">{u.organization || "—"}</td>
                   <td className="px-6 py-3.5">
-                    <span className="capitalize font-semibold text-gov-navy">{u.role}</span>
+                    <span className="capitalize font-medium text-[#12355B]">{u.role}</span>
                   </td>
                   <td className="px-6 py-3.5">
-                    <span className={`px-2 py-0.5 rounded-full text-[10px] font-bold ${
+                    <span className={`px-2 py-0.5 rounded-full text-[10px] font-semibold ${
                       u.status === "active"
-                        ? "bg-emerald-100 text-emerald-800"
+                        ? "bg-[#E8F8F0] text-[#16875D] border border-[#16875D]/20"
                         : u.status === "pending"
-                        ? "bg-amber-100 text-amber-800"
-                        : "bg-rose-100 text-rose-800"
+                        ? "bg-[#FEF8E7] text-[#D89B18] border border-[#D89B18]/20"
+                        : "bg-[#FDF2F2] text-[#D64545] border border-[#D64545]/20"
                     }`}>
                       {u.status}
                     </span>
@@ -127,14 +127,14 @@ export default function AdminUsersDirectoryPage() {
                     {u.status === "active" ? (
                       <button
                         onClick={() => updateStatusMutation.mutate({ userId: u.id, status: "suspended" })}
-                        className="text-xs font-bold text-rose-600 hover:text-rose-800"
+                        className="text-xs font-semibold text-[#D64545] hover:underline"
                       >
                         Suspend
                       </button>
                     ) : (
                       <button
                         onClick={() => updateStatusMutation.mutate({ userId: u.id, status: "active" })}
-                        className="text-xs font-bold text-emerald-600 hover:text-emerald-800"
+                        className="text-xs font-semibold text-[#16875D] hover:underline"
                       >
                         Activate
                       </button>

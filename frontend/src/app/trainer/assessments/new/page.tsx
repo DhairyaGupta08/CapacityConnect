@@ -143,18 +143,18 @@ export default function CreateAssessmentPage() {
 
   return (
     <div className="max-w-4xl mx-auto space-y-6 pb-12">
-      <div className="flex items-center gap-3 border-b border-gov-slate-200 pb-4">
+      <div className="flex items-center gap-3 border-b border-[#E2E8F0] pb-4">
         <Link
           href="/trainer/dashboard"
-          className="p-2 rounded-lg hover:bg-gov-slate-200 text-gov-navy transition"
+          className="p-2 rounded-lg hover:bg-[#F7F9FC] text-[#12355B] transition border border-[#E2E8F0]"
         >
           <ArrowLeft className="w-4 h-4" />
         </Link>
         <div>
-          <h1 className="text-2xl font-extrabold text-gov-navy tracking-tight">
+          <h1 className="text-xl sm:text-2xl font-bold text-[#12355B] tracking-tight">
             MCQ Assessment Authoring Studio
           </h1>
-          <p className="text-xs text-gov-slate-600">
+          <p className="text-xs sm:text-sm text-[#64748B] mt-0.5">
             Define timed exam parameters, author multiple choice questions, and set passing criteria.
           </p>
         </div>
@@ -162,26 +162,26 @@ export default function CreateAssessmentPage() {
 
       <form onSubmit={handleSubmit} className="space-y-6">
         {errorMsg && (
-          <div className="p-3 rounded-lg bg-rose-50 border border-rose-200 text-rose-700 text-xs">
+          <div className="p-3 rounded-lg bg-[#FDF2F2] border border-[#D64545]/20 text-[#D64545] text-xs">
             {errorMsg}
           </div>
         )}
 
         {/* Exam General Parameters */}
-        <div className="bg-white p-6 rounded-2xl border border-gov-slate-200 shadow-sm space-y-4">
-          <h2 className="text-sm font-bold text-gov-navy border-b border-gov-slate-100 pb-2">
+        <div className="bg-white p-6 rounded-xl border border-[#E2E8F0] shadow-[0_4px_20px_rgba(18,53,91,0.06)] space-y-4">
+          <h2 className="text-sm font-bold text-[#12355B] border-b border-[#E2E8F0] pb-2">
             Exam Configuration
           </h2>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
-              <label className="block text-xs font-bold text-gov-navy uppercase tracking-wider mb-1.5">
+              <label className="block text-xs font-semibold text-[#12355B] uppercase tracking-wider mb-1.5">
                 Target Course
               </label>
               <select
                 value={courseId}
                 onChange={(e) => setCourseId(e.target.value)}
-                className="w-full px-3 py-2 text-xs rounded-lg border border-gov-slate-300 focus:outline-none focus:border-emerald-500 bg-white"
+                className="w-full px-3 py-2 text-xs rounded-lg border border-[#E2E8F0] focus:outline-none focus:ring-2 focus:ring-[#1769AA]/30 focus:border-[#1769AA] bg-[#F7F9FC] text-[#172B4D]"
               >
                 {coursesData?.items.map((c) => (
                   <option key={c.id} value={c.id}>
@@ -192,7 +192,7 @@ export default function CreateAssessmentPage() {
             </div>
 
             <div>
-              <label className="block text-xs font-bold text-gov-navy uppercase tracking-wider mb-1.5">
+              <label className="block text-xs font-semibold text-[#12355B] uppercase tracking-wider mb-1.5">
                 Assessment Title
               </label>
               <input
@@ -201,14 +201,14 @@ export default function CreateAssessmentPage() {
                 value={title}
                 onChange={(e) => setTitle(e.target.value)}
                 placeholder="e.g. Official Certification Assessment"
-                className="w-full px-3 py-2 text-xs rounded-lg border border-gov-slate-300 focus:outline-none focus:border-emerald-500"
+                className="w-full px-3 py-2 text-xs rounded-lg border border-[#E2E8F0] focus:outline-none focus:ring-2 focus:ring-[#1769AA]/30 focus:border-[#1769AA] bg-[#F7F9FC] text-[#172B4D]"
               />
             </div>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
-              <label className="block text-xs font-bold text-gov-navy uppercase tracking-wider mb-1.5">
+              <label className="block text-xs font-semibold text-[#12355B] uppercase tracking-wider mb-1.5">
                 Time Limit: {timeLimit} Minutes
               </label>
               <input
@@ -218,12 +218,12 @@ export default function CreateAssessmentPage() {
                 step="5"
                 value={timeLimit}
                 onChange={(e) => setTimeLimit(Number(e.target.value))}
-                className="w-full accent-blue-600"
+                className="w-full accent-[#1769AA]"
               />
             </div>
 
             <div>
-              <label className="block text-xs font-bold text-gov-navy uppercase tracking-wider mb-1.5">
+              <label className="block text-xs font-semibold text-[#12355B] uppercase tracking-wider mb-1.5">
                 Passing Score Percentage: {passingPercentage}%
               </label>
               <input
@@ -233,7 +233,7 @@ export default function CreateAssessmentPage() {
                 step="5"
                 value={passingPercentage}
                 onChange={(e) => setPassingPercentage(Number(e.target.value))}
-                className="w-full accent-emerald-600"
+                className="w-full accent-[#00A6A6]"
               />
             </div>
           </div>
@@ -242,13 +242,13 @@ export default function CreateAssessmentPage() {
         {/* Questions Authoring List */}
         <div className="space-y-4">
           <div className="flex items-center justify-between">
-            <h2 className="text-base font-bold text-gov-navy">
+            <h2 className="text-base font-bold text-[#12355B]">
               Exam Questions ({questions.length})
             </h2>
             <button
               type="button"
               onClick={addQuestion}
-              className="px-3 py-1.5 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs shadow-sm transition flex items-center gap-1"
+              className="px-3.5 py-1.5 rounded-lg bg-[#1769AA] hover:bg-[#12355B] text-white font-semibold text-xs shadow-sm transition flex items-center gap-1"
             >
               <Plus className="w-3.5 h-3.5" /> Add Question
             </button>
@@ -257,17 +257,17 @@ export default function CreateAssessmentPage() {
           {questions.map((q, idx) => (
             <div
               key={idx}
-              className="bg-white p-6 rounded-2xl border border-gov-slate-200 shadow-sm space-y-4"
+              className="bg-white p-6 rounded-xl border border-[#E2E8F0] shadow-[0_4px_20px_rgba(18,53,91,0.06)] space-y-4"
             >
-              <div className="flex items-center justify-between border-b border-gov-slate-100 pb-2">
-                <span className="text-xs font-bold text-gov-navy">
+              <div className="flex items-center justify-between border-b border-[#E2E8F0] pb-2">
+                <span className="text-xs font-bold text-[#12355B]">
                   Question {idx + 1}
                 </span>
                 {questions.length > 1 && (
                   <button
                     type="button"
                     onClick={() => removeQuestion(idx)}
-                    className="text-rose-500 hover:text-rose-700 text-xs font-semibold flex items-center gap-1"
+                    className="text-[#D64545] hover:underline text-xs font-semibold flex items-center gap-1"
                   >
                     <Trash2 className="w-3.5 h-3.5" /> Remove
                   </button>
@@ -275,7 +275,7 @@ export default function CreateAssessmentPage() {
               </div>
 
               <div>
-                <label className="block text-xs font-bold text-gov-navy uppercase tracking-wider mb-1">
+                <label className="block text-xs font-semibold text-[#12355B] uppercase tracking-wider mb-1">
                   Question Text
                 </label>
                 <input
@@ -288,13 +288,13 @@ export default function CreateAssessmentPage() {
                     setQuestions(next);
                   }}
                   placeholder="Enter the question premise..."
-                  className="w-full px-3 py-2 text-xs rounded-lg border border-gov-slate-300 focus:outline-none focus:border-emerald-500"
+                  className="w-full px-3 py-2 text-xs rounded-lg border border-[#E2E8F0] focus:outline-none focus:ring-2 focus:ring-[#1769AA]/30 focus:border-[#1769AA] bg-[#F7F9FC] text-[#172B4D]"
                 />
               </div>
 
               {/* 4 Options */}
               <div className="space-y-2">
-                <label className="block text-xs font-bold text-gov-navy uppercase tracking-wider">
+                <label className="block text-xs font-semibold text-[#12355B] uppercase tracking-wider">
                   Options & Correct Key
                 </label>
                 {q.options.map((opt, optIdx) => (
@@ -308,8 +308,8 @@ export default function CreateAssessmentPage() {
                       }}
                       className={`w-7 h-7 rounded-lg text-xs font-bold flex items-center justify-center shrink-0 transition ${
                         q.correct_answers.includes(opt.id)
-                          ? "bg-emerald-600 text-white shadow-sm"
-                          : "bg-gov-slate-100 text-gov-slate-600 hover:bg-gov-slate-200"
+                          ? "bg-[#16875D] text-white shadow-sm"
+                          : "bg-[#F7F9FC] border border-[#E2E8F0] text-[#64748B] hover:bg-[#E2E8F0]"
                       }`}
                       title="Click to set as correct answer"
                     >
@@ -325,14 +325,14 @@ export default function CreateAssessmentPage() {
                         setQuestions(next);
                       }}
                       placeholder={`Option ${opt.id} text...`}
-                      className="flex-1 px-3 py-1.5 text-xs rounded-lg border border-gov-slate-300 focus:outline-none focus:border-emerald-500"
+                      className="flex-1 px-3 py-1.5 text-xs rounded-lg border border-[#E2E8F0] focus:outline-none focus:ring-2 focus:ring-[#1769AA]/30 focus:border-[#1769AA] bg-[#F7F9FC] text-[#172B4D]"
                     />
                   </div>
                 ))}
               </div>
 
               <div>
-                <label className="block text-xs font-bold text-gov-navy uppercase tracking-wider mb-1">
+                <label className="block text-xs font-semibold text-[#12355B] uppercase tracking-wider mb-1">
                   Regulatory Explanation (Shown to trainee post-submission)
                 </label>
                 <input
@@ -344,7 +344,7 @@ export default function CreateAssessmentPage() {
                     setQuestions(next);
                   }}
                   placeholder="Justification citing CERT-In guidelines, IT Act, or architecture manual..."
-                  className="w-full px-3 py-1.5 text-xs rounded-lg border border-gov-slate-300 focus:outline-none focus:border-emerald-500"
+                  className="w-full px-3 py-1.5 text-xs rounded-lg border border-[#E2E8F0] focus:outline-none focus:ring-2 focus:ring-[#1769AA]/30 focus:border-[#1769AA] bg-[#F7F9FC] text-[#172B4D]"
                 />
               </div>
             </div>
@@ -354,14 +354,14 @@ export default function CreateAssessmentPage() {
         <div className="pt-4 flex justify-end gap-3">
           <Link
             href="/trainer/dashboard"
-            className="px-4 py-2 rounded-lg border border-gov-slate-200 text-xs font-bold text-gov-slate-600 hover:bg-gov-slate-50 transition"
+            className="px-4 py-2 rounded-lg border border-[#E2E8F0] text-xs font-semibold text-[#64748B] hover:bg-[#F7F9FC] transition"
           >
             Cancel
           </Link>
           <button
             type="submit"
             disabled={createMutation.isPending}
-            className="px-6 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-500 disabled:opacity-50 text-white font-bold text-xs shadow-md transition flex items-center gap-2"
+            className="px-6 py-2.5 rounded-lg bg-[#1769AA] hover:bg-[#12355B] disabled:opacity-50 text-white font-semibold text-xs shadow-sm transition flex items-center gap-2"
           >
             <CheckSquare className="w-4 h-4" />
             {createMutation.isPending ? "Saving..." : "Publish Assessment"}

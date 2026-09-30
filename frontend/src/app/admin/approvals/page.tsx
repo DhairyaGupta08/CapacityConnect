@@ -46,67 +46,67 @@ export default function AdminApprovalsPage() {
   });
 
   return (
-    <div className="space-y-8 pb-12">
-      <div className="border-b border-gov-slate-200 pb-4">
-        <h1 className="text-2xl font-extrabold text-gov-navy tracking-tight">
+    <div className="space-y-6 pb-12">
+      <div className="border-b border-[#E2E8F0] pb-4">
+        <h1 className="text-xl sm:text-2xl font-bold text-[#12355B] tracking-tight">
           Trainer Accreditation & Approvals Queue
         </h1>
-        <p className="text-xs text-gov-slate-600">
+        <p className="text-xs sm:text-sm text-[#64748B] mt-0.5">
           Verify candidate pedagogical background, review institutional affiliations, and grant instructor privileges.
         </p>
       </div>
 
       {/* Pending Queue Section */}
-      <div className="bg-white rounded-2xl border border-gov-slate-200 overflow-hidden shadow-sm space-y-4">
-        <div className="p-4 bg-amber-50/70 border-b border-amber-200 flex items-center justify-between">
-          <div className="flex items-center gap-2 font-bold text-xs text-amber-950">
-            <Clock className="w-4 h-4 text-amber-600" />
+      <div className="bg-white rounded-xl border border-[#E2E8F0] overflow-hidden shadow-[0_4px_20px_rgba(18,53,91,0.06)] space-y-0">
+        <div className="p-4 bg-[#FEF8E7] border-b border-[#D89B18]/20 flex items-center justify-between">
+          <div className="flex items-center gap-2 font-semibold text-xs text-[#12355B]">
+            <Clock className="w-4 h-4 text-[#D89B18]" />
             <span>Pending Accreditation Review ({pendingUsers?.total || 0})</span>
           </div>
-          <span className="text-[11px] text-amber-800 font-semibold">
+          <span className="text-[11px] text-[#D89B18] font-semibold">
             Requires Admin Action
           </span>
         </div>
 
         {isLoading ? (
-          <div className="p-8 text-center text-xs text-gov-slate-500 animate-pulse">
+          <div className="p-8 text-center text-xs text-[#64748B] animate-pulse">
             Loading candidate queue...
           </div>
         ) : pendingUsers?.items.length === 0 ? (
           <div className="p-8 text-center space-y-2">
-            <CheckCircle2 className="w-8 h-8 text-emerald-600 mx-auto" />
-            <h3 className="font-bold text-sm text-gov-navy">All Applications Reviewed</h3>
-            <p className="text-xs text-gov-slate-500">There are no pending instructor registrations waiting for approval.</p>
+            <CheckCircle2 className="w-8 h-8 text-[#16875D] mx-auto" />
+            <h3 className="font-semibold text-sm text-[#12355B]">All Applications Reviewed</h3>
+            <p className="text-xs text-[#64748B]">There are no pending instructor registrations waiting for approval.</p>
           </div>
         ) : (
-          <div className="divide-y divide-gov-slate-100">
+          <div className="divide-y divide-[#E2E8F0]">
             {pendingUsers?.items.map((candidate) => (
               <div
                 key={candidate.id}
-                className="p-6 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 hover:bg-gov-slate-50 transition"
+                className="p-5 sm:p-6 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 hover:bg-[#F7F9FC] transition"
               >
                 <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-xl bg-amber-100 text-amber-900 font-black text-lg flex items-center justify-center shrink-0 border border-amber-300">
+                  <div className="w-11 h-11 rounded-lg bg-[#DFF5F3] text-[#12355B] font-bold text-base flex items-center justify-center shrink-0 border border-[#00A6A6]/20">
                     {candidate.full_name.charAt(0)}
                   </div>
                   <div className="space-y-1">
                     <div className="flex items-center gap-2">
-                      <h3 className="font-extrabold text-sm text-gov-navy">{candidate.full_name}</h3>
-                      <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-amber-100 text-amber-800 uppercase">
+                      <h3 className="font-bold text-sm text-[#12355B]">{candidate.full_name}</h3>
+                      <span className="px-2 py-0.5 rounded-full text-[10px] font-semibold bg-[#FEF8E7] text-[#D89B18] border border-[#D89B18]/20 uppercase">
                         Pending
                       </span>
                     </div>
-                    <div className="flex flex-wrap items-center gap-4 text-xs text-gov-slate-500">
-                      <span className="flex items-center gap-1"><Mail className="w-3.5 h-3.5" /> {candidate.email}</span>
+                    <div className="flex flex-wrap items-center gap-4 text-xs text-[#64748B]">
+                      <span className="flex items-center gap-1"><Mail className="w-3.5 h-3.5 text-[#1769AA]" /> {candidate.email}</span>
                       {candidate.organization && (
-                        <span className="flex items-center gap-1"><Building className="w-3.5 h-3.5" /> {candidate.organization}</span>
+                        <span className="flex items-center gap-1"><Building className="w-3.5 h-3.5 text-[#64748B]" /> {candidate.organization}</span>
                       )}
                       {candidate.phone && (
-                        <span className="flex items-center gap-1"><Phone className="w-3.5 h-3.5" /> {candidate.phone}</span>
+                        <span className="flex items-center gap-1"><Phone className="w-3.5 h-3.5 text-[#64748B]" /> {candidate.phone}</span>
                       )}
                     </div>
                     {candidate.bio && (
-                      <p className="text-xs text-gov-slate-600 max-w-xl leading-relaxed pt-1">
+                      <p className="text-xs text-[#172B4D] max-w-xl leading-relaxed pt-1">
                         {candidate.bio}
                       </p>
                     )}
@@ -117,14 +117,14 @@ export default function AdminApprovalsPage() {
                   <button
                     onClick={() => updateStatusMutation.mutate({ userId: candidate.id, status: "active" })}
                     disabled={updateStatusMutation.isPending}
-                    className="flex-1 md:flex-none px-4 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs shadow-sm transition flex items-center justify-center gap-1.5"
+                    className="flex-1 md:flex-none px-4 py-2 rounded-lg bg-[#16875D] hover:bg-[#126b4a] text-white font-semibold text-xs shadow-sm transition flex items-center justify-center gap-1.5"
                   >
                     <Check className="w-4 h-4" /> Approve Instructor
                   </button>
                   <button
                     onClick={() => updateStatusMutation.mutate({ userId: candidate.id, status: "rejected" })}
                     disabled={updateStatusMutation.isPending}
-                    className="flex-1 md:flex-none px-3.5 py-2 rounded-xl bg-rose-50 hover:bg-rose-100 border border-rose-200 text-rose-700 font-bold text-xs transition flex items-center justify-center gap-1"
+                    className="flex-1 md:flex-none px-3.5 py-2 rounded-lg bg-[#FDF2F2] hover:bg-[#fbdada] border border-[#D64545]/20 text-[#D64545] font-semibold text-xs transition flex items-center justify-center gap-1"
                   >
                     <X className="w-4 h-4" /> Reject
                   </button>
@@ -136,17 +136,17 @@ export default function AdminApprovalsPage() {
       </div>
 
       {/* All Active Instructors Roster */}
-      <div className="bg-white rounded-2xl border border-gov-slate-200 overflow-hidden shadow-sm space-y-4">
-        <div className="p-4 border-b border-gov-slate-100 flex items-center justify-between">
-          <div className="flex items-center gap-2 font-bold text-xs text-gov-navy">
-            <GraduationCap className="w-4 h-4 text-emerald-600" />
+      <div className="bg-white rounded-xl border border-[#E2E8F0] overflow-hidden shadow-[0_4px_20px_rgba(18,53,91,0.06)] space-y-0">
+        <div className="p-4 border-b border-[#E2E8F0] flex items-center justify-between">
+          <div className="flex items-center gap-2 font-bold text-xs text-[#12355B]">
+            <GraduationCap className="w-4 h-4 text-[#1769AA]" />
             <span>Accredited Instructor Directory ({allTrainers?.total || 0})</span>
           </div>
         </div>
 
         <div className="overflow-x-auto">
           <table className="w-full text-left text-xs">
-            <thead className="bg-gov-slate-50 text-gov-slate-500 font-bold uppercase text-[10px] border-b border-gov-slate-200">
+            <thead className="bg-[#F7F9FC] text-[#64748B] font-semibold uppercase text-[10px] border-b border-[#E2E8F0]">
               <tr>
                 <th className="px-6 py-3">Instructor Name</th>
                 <th className="px-6 py-3">Organization</th>
@@ -155,19 +155,19 @@ export default function AdminApprovalsPage() {
                 <th className="px-6 py-3 text-right">Governance Actions</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-gov-slate-100">
+            <tbody className="divide-y divide-[#E2E8F0]">
               {allTrainers?.items.map((trainer) => (
-                <tr key={trainer.id} className="hover:bg-gov-slate-50/60 transition">
-                  <td className="px-6 py-3.5 font-bold text-gov-navy">{trainer.full_name}</td>
-                  <td className="px-6 py-3.5 text-gov-slate-600">{trainer.organization || "Independent Expert"}</td>
-                  <td className="px-6 py-3.5 text-gov-slate-500 font-mono text-[11px]">{trainer.email}</td>
+                <tr key={trainer.id} className="hover:bg-[#F7F9FC] transition">
+                  <td className="px-6 py-3.5 font-semibold text-[#172B4D]">{trainer.full_name}</td>
+                  <td className="px-6 py-3.5 text-[#64748B]">{trainer.organization || "Independent Expert"}</td>
+                  <td className="px-6 py-3.5 text-[#64748B] font-mono text-[11px]">{trainer.email}</td>
                   <td className="px-6 py-3.5">
-                    <span className={`px-2 py-0.5 rounded-full text-[10px] font-bold ${
+                    <span className={`px-2 py-0.5 rounded-full text-[10px] font-semibold ${
                       trainer.status === "active"
-                        ? "bg-emerald-100 text-emerald-800"
+                        ? "bg-[#E8F8F0] text-[#16875D] border border-[#16875D]/20"
                         : trainer.status === "pending"
-                        ? "bg-amber-100 text-amber-800"
-                        : "bg-rose-100 text-rose-800"
+                        ? "bg-[#FEF8E7] text-[#D89B18] border border-[#D89B18]/20"
+                        : "bg-[#FDF2F2] text-[#D64545] border border-[#D64545]/20"
                     }`}>
                       {trainer.status}
                     </span>
@@ -176,14 +176,14 @@ export default function AdminApprovalsPage() {
                     {trainer.status === "active" ? (
                       <button
                         onClick={() => updateStatusMutation.mutate({ userId: trainer.id, status: "suspended" })}
-                        className="text-xs font-bold text-rose-600 hover:text-rose-800"
+                        className="text-xs font-semibold text-[#D64545] hover:underline"
                       >
                         Suspend
                       </button>
                     ) : (
                       <button
                         onClick={() => updateStatusMutation.mutate({ userId: trainer.id, status: "active" })}
-                        className="text-xs font-bold text-emerald-600 hover:text-emerald-800"
+                        className="text-xs font-semibold text-[#16875D] hover:underline"
                       >
                         Re-Activate
                       </button>

@@ -9,90 +9,81 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // Full 9-Shade Oceanic Cyan-Sapphire Gradient Palette:
-        ocean: {
-          950: "#03045E", // Deep Midnight Navy
-          900: "#023E8A", // Royal Sovereign Blue
-          800: "#0077B6", // Deep Cobalt Ocean
-          700: "#0096C7", // Vibrant Azure
-          600: "#00B4D8", // Bright Cerulean Cyan
-          500: "#48CAE4", // Sky Aqua
-          400: "#90E0EF", // Soft Ice Blue
-          300: "#ADE8F4", // Pale Mist Cyan
-          200: "#CAF0F8", // Pristine Light Ice
-          100: "#E6F8FB", // Ultra-light tint
-          50:  "#F2FCFD", // Canvas background
+        // Core National Platform Palette
+        primary: {
+          navy: "#12355B",
+          blue: "#1769AA",
         },
-        brand: {
-          midnight: "#03045E",
-          royal: "#023E8A",
-          cobalt: "#0077B6",
-          azure: "#0096C7",
-          cerulean: "#00B4D8",
-          aqua: "#48CAE4",
-          ice: "#90E0EF",
-          mist: "#ADE8F4",
-          bg: "#CAF0F8",
-          surface: "#FFFFFF",
+        accent: {
+          teal: "#00A6A6",
+          "light-teal": "#DFF5F3",
         },
-        // Theme Aliases mapped to User Palette for full system uniformity
+        page: {
+          bg: "#F7F9FC",
+          card: "#FFFFFF",
+        },
+        text: {
+          primary: "#172B4D",
+          secondary: "#64748B",
+        },
+        border: {
+          DEFAULT: "#E2E8F0",
+        },
+        // Institutional Theme Aliases
         gov: {
           navy: {
-            dark: "#03045E",
-            DEFAULT: "#023E8A",
-            light: "#0077B6",
-            accent: "#00B4D8",
+            dark: "#0D2744",
+            DEFAULT: "#12355B",
+            light: "#1D4B7D",
+            accent: "#00A6A6",
           },
-          amber: {
-            dark: "#0077B6",
-            DEFAULT: "#0096C7",
-            light: "#48CAE4",
+          blue: {
+            dark: "#135488",
+            DEFAULT: "#1769AA",
+            light: "#EBF3FB",
+          },
+          teal: {
+            dark: "#008B8B",
+            DEFAULT: "#00A6A6",
+            light: "#DFF5F3",
           },
           slate: {
-            50: "#CAF0F8",
-            100: "#ADE8F4",
-            200: "#90E0EF",
-            300: "#48CAE4",
-            400: "#00B4D8",
-            500: "#0096C7",
-            600: "#0077B6",
-            700: "#023E8A",
-            800: "#03045E",
-            900: "#010238",
+            50: "#F7F9FC",
+            100: "#F1F5F9",
+            200: "#E2E8F0",
+            300: "#CBD5E1",
+            400: "#94A3B8",
+            500: "#64748B",
+            600: "#475569",
+            700: "#334155",
+            800: "#1E293B",
+            900: "#0F172A",
           },
           status: {
-            success: "#0077B6",
-            "success-bg": "#CAF0F8",
-            warning: "#D97706",
-            "warning-bg": "#FEF3C7",
-            error: "#DC2626",
-            "error-bg": "#FEE2E2",
-            info: "#0096C7",
-            "info-bg": "#CAF0F8",
+            success: "#16875D",
+            "success-bg": "#E8F8F0",
+            warning: "#D89B18",
+            "warning-bg": "#FEF8E7",
+            error: "#D64545",
+            "error-bg": "#FDF2F2",
+            info: "#1769AA",
+            "info-bg": "#EBF3FB",
           },
-        },
-        blue: {
-          50: "#CAF0F8",
-          100: "#ADE8F4",
-          200: "#90E0EF",
-          300: "#48CAE4",
-          400: "#00B4D8",
-          500: "#0096C7",
-          600: "#0077B6",
-          700: "#023E8A",
-          800: "#03045E",
-          900: "#020340",
-          950: "#010224",
         },
       },
       fontFamily: {
-        sans: ["var(--font-inter)", "system-ui", "-apple-system", "sans-serif"],
+        sans: ["var(--font-inter)", "Inter", "system-ui", "-apple-system", "sans-serif"],
+      },
+      borderRadius: {
+        input: "8px",
+        btn: "10px",
+        card: "12px",
+        container: "16px",
       },
       boxShadow: {
-        'ocean-sm': "0 2px 8px -1px rgba(3, 4, 94, 0.08), 0 1px 4px -1px rgba(0, 119, 182, 0.06)",
-        'ocean-md': "0 8px 24px -4px rgba(3, 4, 94, 0.12), 0 4px 12px -2px rgba(0, 119, 182, 0.08)",
-        'ocean-lg': "0 16px 36px -6px rgba(3, 4, 94, 0.18), 0 6px 16px -3px rgba(0, 180, 216, 0.12)",
-        'ocean-glow': "0 0 25px rgba(72, 202, 228, 0.45)",
+        subtle: "0 1px 3px rgba(18, 53, 91, 0.05), 0 1px 2px rgba(18, 53, 91, 0.03)",
+        card: "0 4px 20px rgba(18, 53, 91, 0.06)",
+        elevated: "0 10px 25px -3px rgba(18, 53, 91, 0.08), 0 4px 10px -2px rgba(18, 53, 91, 0.04)",
       },
     },
   },
@@ -100,3 +91,4 @@ const config: Config = {
 };
 
 export default config;
+

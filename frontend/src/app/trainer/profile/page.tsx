@@ -58,40 +58,40 @@ export default function TrainerProfilePage() {
   };
 
   return (
-    <div className="max-w-3xl mx-auto space-y-6">
-      <div className="border-b border-gov-slate-200 pb-4">
-        <h1 className="text-2xl font-extrabold text-gov-navy tracking-tight">
+    <div className="max-w-3xl mx-auto space-y-6 pb-12">
+      <div className="border-b border-[#E2E8F0] pb-4">
+        <h1 className="text-xl sm:text-2xl font-bold text-[#12355B] tracking-tight">
           Instructor Profile & Expertise
         </h1>
-        <p className="text-xs text-gov-slate-600">
+        <p className="text-xs sm:text-sm text-[#64748B] mt-0.5">
           Maintain your subject domain tags, pedagogical experience, and availability for institutional matching.
         </p>
       </div>
 
-      <div className="bg-white p-6 sm:p-8 rounded-2xl border border-gov-slate-200 shadow-sm space-y-6">
-        <div className="flex items-center gap-4 border-b border-gov-slate-100 pb-5">
-          <div className="w-14 h-14 rounded-full bg-blue-600 text-white font-bold text-xl flex items-center justify-center border-2 border-blue-400">
+      <div className="bg-white p-6 sm:p-8 rounded-xl border border-[#E2E8F0] shadow-[0_4px_20px_rgba(18,53,91,0.06)] space-y-6">
+        <div className="flex items-center gap-4 border-b border-[#E2E8F0] pb-5">
+          <div className="w-13 h-13 rounded-xl bg-[#DFF5F3] text-[#12355B] font-bold text-xl flex items-center justify-center border border-[#00A6A6]/20">
             {user?.full_name?.charAt(0) || "T"}
           </div>
           <div>
-            <h2 className="font-extrabold text-base text-gov-navy">{user?.full_name}</h2>
-            <div className="text-xs text-gov-slate-500">{user?.email}</div>
-            <span className="inline-block mt-1 px-2 py-0.5 rounded text-[10px] font-bold bg-blue-100 text-blue-800 uppercase">
+            <h2 className="font-bold text-base text-[#12355B]">{user?.full_name}</h2>
+            <div className="text-xs text-[#64748B] font-mono">{user?.email}</div>
+            <span className="inline-block mt-1 px-2.5 py-0.5 rounded-full text-[10px] font-semibold bg-[#E8F8F0] text-[#16875D] border border-[#16875D]/20 uppercase">
               Accreditation: Certified Trainer ({user?.status})
             </span>
           </div>
         </div>
 
         {isSuccess && (
-          <div className="p-3 rounded-xl bg-emerald-50 border border-emerald-300 text-emerald-800 text-xs flex items-center gap-2">
-            <CheckCircle2 className="w-4 h-4 text-emerald-600" />
+          <div className="p-3 rounded-lg bg-[#E8F8F0] border border-[#16875D]/30 text-[#16875D] text-xs flex items-center gap-2">
+            <CheckCircle2 className="w-4 h-4 text-[#16875D]" />
             <span>Profile and expertise tags updated successfully!</span>
           </div>
         )}
 
         <form onSubmit={handleSave} className="space-y-4">
           <div>
-            <label className="block text-xs font-bold text-gov-navy uppercase tracking-wider mb-1.5">
+            <label className="block text-xs font-semibold text-[#12355B] uppercase tracking-wider mb-1.5">
               Expertise Subjects (Used in Competency Matching Algorithm)
             </label>
             <input
@@ -100,15 +100,15 @@ export default function TrainerProfilePage() {
               value={expertise}
               onChange={(e) => setExpertise(e.target.value)}
               placeholder="e.g. Cybersecurity in Governance, Critical Infrastructure Protection, ISO 27001"
-              className="w-full px-3 py-2 text-xs rounded-lg border border-gov-slate-300 focus:outline-none focus:border-blue-500 font-medium text-gov-navy"
+              className="w-full px-3 py-2 text-xs rounded-lg border border-[#E2E8F0] focus:outline-none focus:ring-2 focus:ring-[#1769AA]/30 focus:border-[#1769AA] font-medium text-[#172B4D] bg-[#F7F9FC]"
             />
-            <p className="text-[11px] text-gov-slate-500 mt-1">
+            <p className="text-[11px] text-[#64748B] mt-1">
               Separate subjects by commas for the deterministic match formula.
             </p>
           </div>
 
           <div>
-            <label className="block text-xs font-bold text-gov-navy uppercase tracking-wider mb-1.5">
+            <label className="block text-xs font-semibold text-[#12355B] uppercase tracking-wider mb-1.5">
               Instructional Experience: {experienceYears} Years
             </label>
             <input
@@ -117,28 +117,28 @@ export default function TrainerProfilePage() {
               max="35"
               value={experienceYears}
               onChange={(e) => setExperienceYears(Number(e.target.value))}
-              className="w-full accent-blue-600"
+              className="w-full accent-[#1769AA]"
             />
           </div>
 
-          <div className="p-4 rounded-xl bg-gov-slate-50 border border-gov-slate-200 flex items-center justify-between">
+          <div className="p-4 rounded-xl bg-[#F7F9FC] border border-[#E2E8F0] flex items-center justify-between">
             <div>
-              <div className="font-bold text-xs text-gov-navy">Availability for Institutional Deployment</div>
-              <div className="text-[11px] text-gov-slate-500">Allow government departments to match and book you for capacity workshops.</div>
+              <div className="font-semibold text-xs text-[#12355B]">Availability for Institutional Deployment</div>
+              <div className="text-[11px] text-[#64748B]">Allow government departments to match and assign capacity workshops.</div>
             </div>
             <input
               type="checkbox"
               checked={availabilityStatus}
               onChange={(e) => setAvailabilityStatus(e.target.checked)}
-              className="w-5 h-5 accent-emerald-600 rounded"
+              className="w-4 h-4 accent-[#1769AA] rounded"
             />
           </div>
 
-          <div className="pt-4 border-t border-gov-slate-100 flex justify-end">
+          <div className="pt-4 border-t border-[#E2E8F0] flex justify-end">
             <button
               type="submit"
               disabled={updateMutation.isPending}
-              className="px-6 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-500 disabled:opacity-50 text-white font-bold text-xs shadow-md transition flex items-center gap-2"
+              className="px-6 py-2.5 rounded-lg bg-[#1769AA] hover:bg-[#12355B] disabled:opacity-50 text-white font-semibold text-xs shadow-sm transition flex items-center gap-2"
             >
               <Save className="w-4 h-4" />
               {updateMutation.isPending ? "Saving..." : "Save Trainer Profile"}

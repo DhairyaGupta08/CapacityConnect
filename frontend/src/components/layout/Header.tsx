@@ -34,58 +34,65 @@ export function Header() {
   };
 
   return (
-    <header className="sticky top-0 z-40 w-full bg-[#023E8A] border-b border-[#0077B6]/50 text-white shadow-lg">
-      {/* Top Sovereign Bar */}
-      <div className="bg-[#03045E] border-b border-[#0077B6]/30 px-4 py-1.5 text-xs text-[#ADE8F4] flex justify-between items-center max-w-7xl mx-auto">
-        <div className="flex items-center gap-2">
-          <span className="inline-block w-2 h-2 rounded-full bg-[#48CAE4] animate-pulse"></span>
-          <span className="font-medium text-[#CAF0F8]">National Digital Capacity Building & Accreditation Platform</span>
-        </div>
-        <div className="hidden sm:flex items-center gap-4 text-xs">
-          <span className="text-[#ADE8F4]">CBC / DoPT Framework</span>
-          <span className="text-[#0077B6]">|</span>
-          <Link href="/verify" className="hover:text-white transition flex items-center gap-1.5 text-[#48CAE4] font-medium">
-            <Award className="w-3.5 h-3.5" /> Public Certificate Verification
-          </Link>
+    <header className="sticky top-0 z-40 w-full bg-white border-b border-[#E2E8F0] shadow-sm">
+      {/* 1. Subtle Institutional Top Strip */}
+      <div className="bg-[#12355B] text-white px-4 py-1.5 text-xs">
+        <div className="max-w-7xl mx-auto flex justify-between items-center">
+          <div className="flex items-center gap-2">
+            <span className="inline-block w-2 h-2 rounded-full bg-[#00A6A6]"></span>
+            <span className="font-medium text-slate-200 tracking-normal text-[11px] sm:text-xs">
+              National Digital Capacity Building & Accreditation Platform
+            </span>
+          </div>
+          <div className="hidden sm:flex items-center gap-4 text-xs text-slate-300">
+            <span className="text-slate-400">CBC / DoPT Institutional Framework</span>
+            <span className="text-slate-600">|</span>
+            <Link
+              href="/verify"
+              className="hover:text-white transition flex items-center gap-1.5 text-[#00A6A6] font-medium"
+            >
+              <Award className="w-3.5 h-3.5" /> Public Certificate Verification
+            </Link>
+          </div>
         </div>
       </div>
 
-      {/* Main Navigation Bar */}
+      {/* 2. Main White Navigation Bar */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
         {/* Brand & Logo */}
-        <div className="flex items-center gap-6">
+        <div className="flex items-center gap-8">
           <Link href="/" className="flex items-center gap-3 group">
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#0096C7] to-[#023E8A] flex items-center justify-center border border-[#48CAE4]/40 group-hover:scale-105 transition shadow-sm">
-              <Shield className="w-5 h-5 text-[#CAF0F8]" />
+            <div className="w-10 h-10 rounded-lg bg-[#12355B] flex items-center justify-center text-white border border-[#E2E8F0] shadow-sm group-hover:bg-[#1769AA] transition">
+              <Shield className="w-5 h-5 text-[#00A6A6]" />
             </div>
             <div>
-              <div className="font-extrabold text-lg tracking-tight flex items-center gap-1 text-white">
-                Capacity<span className="text-[#48CAE4]">Connect</span>
+              <div className="font-bold text-lg tracking-tight flex items-center gap-0.5 text-[#12355B]">
+                Capacity<span className="text-[#1769AA]">Connect</span>
               </div>
-              <div className="text-[10px] text-[#ADE8F4] tracking-wider uppercase font-semibold">
+              <div className="text-[10px] text-[#64748B] tracking-wider uppercase font-semibold">
                 Digital Governance LMS
               </div>
             </div>
           </Link>
 
           {/* Nav Links */}
-          <nav className="hidden md:flex items-center gap-1.5 ml-4 text-sm font-medium">
+          <nav className="hidden md:flex items-center gap-1 text-sm font-medium">
             <Link
               href="/courses"
-              className={`px-3.5 py-2 rounded-xl transition ${
+              className={`px-3.5 py-2 rounded-lg text-xs font-semibold transition ${
                 pathname.startsWith("/courses")
-                  ? "bg-[#0077B6] text-white font-bold border border-[#48CAE4]/40 shadow-sm"
-                  : "text-[#CAF0F8] hover:text-white hover:bg-[#0077B6]/50"
+                  ? "bg-[#DFF5F3] text-[#12355B] font-bold"
+                  : "text-[#172B4D] hover:text-[#1769AA] hover:bg-[#F7F9FC]"
               }`}
             >
               Course Catalog
             </Link>
             <Link
               href="/verify"
-              className={`px-3.5 py-2 rounded-xl transition ${
+              className={`px-3.5 py-2 rounded-lg text-xs font-semibold transition ${
                 pathname.startsWith("/verify")
-                  ? "bg-[#0077B6] text-white font-bold border border-[#48CAE4]/40 shadow-sm"
-                  : "text-[#CAF0F8] hover:text-white hover:bg-[#0077B6]/50"
+                  ? "bg-[#DFF5F3] text-[#12355B] font-bold"
+                  : "text-[#172B4D] hover:text-[#1769AA] hover:bg-[#F7F9FC]"
               }`}
             >
               Verify Certificate
@@ -93,13 +100,13 @@ export function Header() {
             {user && (
               <Link
                 href={getDashboardLink()}
-                className={`px-3.5 py-2 rounded-xl transition flex items-center gap-1.5 ${
+                className={`px-3.5 py-2 rounded-lg text-xs font-semibold transition flex items-center gap-1.5 ${
                   pathname.includes("/dashboard")
-                    ? "bg-[#0077B6] text-white font-bold border border-[#48CAE4]/40 shadow-sm"
-                    : "text-[#CAF0F8] hover:text-white hover:bg-[#0077B6]/50"
+                    ? "bg-[#DFF5F3] text-[#12355B] font-bold"
+                    : "text-[#172B4D] hover:text-[#1769AA] hover:bg-[#F7F9FC]"
                 }`}
               >
-                <LayoutDashboard className="w-4 h-4 text-[#48CAE4]" />
+                <LayoutDashboard className="w-4 h-4 text-[#1769AA]" />
                 {user.role === "admin" ? "Admin Portal" : user.role === "trainer" ? "Trainer Portal" : "My Learning"}
               </Link>
             )}
@@ -112,70 +119,77 @@ export function Header() {
           <div className="relative">
             <button
               onClick={() => setIsDemoMenuOpen(!isDemoMenuOpen)}
-              className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-[#03045E]/80 border border-[#0096C7]/50 text-[#CAF0F8] text-xs font-semibold hover:bg-[#0077B6] hover:text-white transition shadow-sm"
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#F7F9FC] border border-[#E2E8F0] text-[#172B4D] text-xs font-semibold hover:bg-[#EBF3FB] hover:border-[#1769AA]/40 transition"
               title="Quickly switch demo accounts for judges and evaluators"
             >
-              <Users className="w-3.5 h-3.5 text-[#48CAE4]" />
-              <span className="hidden sm:inline">Role Switcher:</span>
-              <span className="capitalize text-white font-bold">{user ? user.role : "Guest"}</span>
-              <ChevronDown className="w-3 h-3 ml-0.5 text-[#ADE8F4]" />
+              <Users className="w-3.5 h-3.5 text-[#1769AA]" />
+              <span className="hidden sm:inline text-[#64748B]">Role Switcher:</span>
+              <span className="capitalize text-[#12355B] font-bold">{user ? user.role : "Guest"}</span>
+              <ChevronDown className="w-3 h-3 ml-0.5 text-[#64748B]" />
             </button>
 
             {isDemoMenuOpen && (
               <div
-                className="absolute right-0 mt-2 w-60 rounded-2xl bg-[#03045E] border border-[#0096C7]/50 text-white shadow-2xl py-2 z-50 text-xs"
+                className="absolute right-0 mt-2 w-64 rounded-xl bg-white border border-[#E2E8F0] text-[#172B4D] shadow-lg py-2 z-50 text-xs"
                 onMouseLeave={() => setIsDemoMenuOpen(false)}
               >
-                <div className="px-3.5 py-1 text-[11px] font-bold text-[#48CAE4] uppercase tracking-wider border-b border-[#0077B6]/40 pb-1.5 mb-1">
-                  Demo Fast-Switch
+                <div className="px-3.5 py-1 text-[11px] font-bold text-[#12355B] uppercase tracking-wider border-b border-[#E2E8F0] pb-1.5 mb-1 flex items-center justify-between">
+                  <span>Demo Fast-Switch</span>
+                  <span className="text-[10px] text-[#00A6A6] font-semibold">1-Click Login</span>
                 </div>
                 <button
                   onClick={async () => {
                     setIsDemoMenuOpen(false);
                     await quickLogin("admin");
                   }}
-                  className="w-full text-left px-3.5 py-2 hover:bg-[#023E8A] flex items-center justify-between text-[#CAF0F8] hover:text-white transition"
+                  className="w-full text-left px-3.5 py-2 hover:bg-[#F7F9FC] flex items-center justify-between transition"
                 >
                   <div className="flex items-center gap-2">
-                    <Shield className="w-4 h-4 text-[#48CAE4]" />
+                    <div className="w-7 h-7 rounded-md bg-[#FEF8E7] text-[#D89B18] flex items-center justify-center">
+                      <Shield className="w-4 h-4" />
+                    </div>
                     <div>
-                      <div className="font-semibold text-white">Admin (Governance)</div>
-                      <div className="text-[10px] text-[#90E0EF]">Approvals, Competency & KPIs</div>
+                      <div className="font-semibold text-[#12355B]">Admin (Governance)</div>
+                      <div className="text-[10px] text-[#64748B]">Approvals, Competency & KPIs</div>
                     </div>
                   </div>
-                  {user?.role === "admin" && <CheckCircle2 className="w-3.5 h-3.5 text-[#48CAE4]" />}
+                  {user?.role === "admin" && <CheckCircle2 className="w-3.5 h-3.5 text-[#16875D]" />}
                 </button>
                 <button
                   onClick={async () => {
                     setIsDemoMenuOpen(false);
                     await quickLogin("trainer");
                   }}
-                  className="w-full text-left px-3.5 py-2 hover:bg-[#023E8A] flex items-center justify-between text-[#CAF0F8] hover:text-white transition"
+                  className="w-full text-left px-3.5 py-2 hover:bg-[#F7F9FC] flex items-center justify-between transition"
                 >
                   <div className="flex items-center gap-2">
-                    <GraduationCap className="w-4 h-4 text-[#00B4D8]" />
+                    <div className="w-7 h-7 rounded-md bg-[#EBF3FB] text-[#1769AA] flex items-center justify-center">
+                      <GraduationCap className="w-4 h-4" />
+                    </div>
                     <div>
-                      <div className="font-semibold text-white">Trainer (Authoring)</div>
-                      <div className="text-[10px] text-[#90E0EF]">Courses & MCQ Assessments</div>
+                      <div className="font-semibold text-[#12355B]">Trainer (Authoring)</div>
+                      <div className="text-[10px] text-[#64748B]">Courses & MCQ Assessments</div>
                     </div>
                   </div>
-                  {user?.role === "trainer" && <CheckCircle2 className="w-3.5 h-3.5 text-[#48CAE4]" />}
+                  {user?.role === "trainer" && <CheckCircle2 className="w-3.5 h-3.5 text-[#16875D]" />}
                 </button>
                 <button
                   onClick={async () => {
                     setIsDemoMenuOpen(false);
                     await quickLogin("trainee");
                   }}
-                  className="w-full text-left px-3.5 py-2 hover:bg-[#023E8A] flex items-center justify-between text-[#CAF0F8] hover:text-white transition"
+                  className="w-full text-left px-3.5 py-2 hover:bg-[#F7F9FC] flex items-center justify-between transition"
                 >
                   <div className="flex items-center gap-2">
-                    <BookOpen className="w-4 h-4 text-[#48CAE4]" />
+                    <div className="w-7 h-7 rounded-md bg-[#DFF5F3] text-[#00A6A6] flex items-center justify-center">
+                      <BookOpen className="w-4 h-4" />
+                    </div>
                     <div>
-                      <div className="font-semibold text-white">Trainee (Learner)</div>
-                      <div className="text-[10px] text-[#90E0EF]">Take test & get certified</div>
+                      <div className="font-semibold text-[#12355B]">Trainee (Learner)</div>
+                      <div className="text-[10px] text-[#64748B]">Take test & get certified</div>
                     </div>
                   </div>
-                  {user?.role === "trainee" && <CheckCircle2 className="w-3.5 h-3.5 text-[#48CAE4]" />}
+                  {user?.role === "trainee" && <CheckCircle2 className="w-3.5 h-3.5 text-[#16875D]" />}
                 </button>
               </div>
             )}
@@ -185,42 +199,42 @@ export function Header() {
             <div className="relative">
               <button
                 onClick={() => setIsUserMenuOpen(!isUserMenuOpen)}
-                className="flex items-center gap-2 p-1.5 rounded-xl hover:bg-[#0077B6]/60 transition text-sm"
+                className="flex items-center gap-2 p-1.5 rounded-lg hover:bg-[#F7F9FC] transition text-sm"
               >
-                <div className="w-8 h-8 rounded-full bg-[#0096C7] text-white font-bold flex items-center justify-center border border-[#ADE8F4]/60 shadow-sm">
+                <div className="w-8 h-8 rounded-full bg-[#12355B] text-white font-bold flex items-center justify-center text-xs shadow-sm">
                   {user.full_name.charAt(0)}
                 </div>
                 <div className="hidden lg:block text-left">
-                  <div className="font-semibold text-xs text-white leading-tight">{user.full_name}</div>
-                  <div className="text-[10px] text-[#ADE8F4] uppercase tracking-wider">{user.role}</div>
+                  <div className="font-semibold text-xs text-[#12355B] leading-tight">{user.full_name}</div>
+                  <div className="text-[10px] text-[#64748B] uppercase tracking-wider">{user.role}</div>
                 </div>
-                <ChevronDown className="w-3.5 h-3.5 text-[#ADE8F4]" />
+                <ChevronDown className="w-3.5 h-3.5 text-[#64748B]" />
               </button>
 
               {isUserMenuOpen && (
                 <div
-                  className="absolute right-0 mt-2 w-56 rounded-2xl bg-[#03045E] border border-[#0096C7]/50 text-white shadow-2xl py-1.5 z-50 text-xs"
+                  className="absolute right-0 mt-2 w-56 rounded-xl bg-white border border-[#E2E8F0] text-[#172B4D] shadow-lg py-1.5 z-50 text-xs"
                   onMouseLeave={() => setIsUserMenuOpen(false)}
                 >
-                  <div className="px-3.5 py-2 border-b border-[#0077B6]/40">
-                    <div className="font-semibold text-white truncate">{user.full_name}</div>
-                    <div className="text-[11px] text-[#ADE8F4] truncate">{user.email}</div>
+                  <div className="px-3.5 py-2 border-b border-[#E2E8F0]">
+                    <div className="font-semibold text-[#12355B] truncate">{user.full_name}</div>
+                    <div className="text-[11px] text-[#64748B] truncate">{user.email}</div>
                   </div>
                   <Link
                     href={getDashboardLink()}
                     onClick={() => setIsUserMenuOpen(false)}
-                    className="flex items-center gap-2 px-3.5 py-2 hover:bg-[#023E8A] text-[#CAF0F8] hover:text-white transition"
+                    className="flex items-center gap-2 px-3.5 py-2 hover:bg-[#F7F9FC] text-[#172B4D] transition font-medium"
                   >
-                    <LayoutDashboard className="w-4 h-4 text-[#48CAE4]" />
+                    <LayoutDashboard className="w-4 h-4 text-[#1769AA]" />
                     Dashboard
                   </Link>
                   {user.role === "trainee" && (
                     <Link
                       href="/trainee/certificates"
                       onClick={() => setIsUserMenuOpen(false)}
-                      className="flex items-center gap-2 px-3.5 py-2 hover:bg-[#023E8A] text-[#CAF0F8] hover:text-white transition"
+                      className="flex items-center gap-2 px-3.5 py-2 hover:bg-[#F7F9FC] text-[#172B4D] transition font-medium"
                     >
-                      <Award className="w-4 h-4 text-[#48CAE4]" />
+                      <Award className="w-4 h-4 text-[#00A6A6]" />
                       My Certificates
                     </Link>
                   )}
@@ -228,9 +242,9 @@ export function Header() {
                     <Link
                       href="/trainer/courses"
                       onClick={() => setIsUserMenuOpen(false)}
-                      className="flex items-center gap-2 px-3.5 py-2 hover:bg-[#023E8A] text-[#CAF0F8] hover:text-white transition"
+                      className="flex items-center gap-2 px-3.5 py-2 hover:bg-[#F7F9FC] text-[#172B4D] transition font-medium"
                     >
-                      <BookOpen className="w-4 h-4 text-[#00B4D8]" />
+                      <BookOpen className="w-4 h-4 text-[#1769AA]" />
                       My Authored Courses
                     </Link>
                   )}
@@ -238,19 +252,19 @@ export function Header() {
                     <Link
                       href="/admin/approvals"
                       onClick={() => setIsUserMenuOpen(false)}
-                      className="flex items-center gap-2 px-3.5 py-2 hover:bg-[#023E8A] text-[#CAF0F8] hover:text-white transition"
+                      className="flex items-center gap-2 px-3.5 py-2 hover:bg-[#F7F9FC] text-[#172B4D] transition font-medium"
                     >
-                      <Shield className="w-4 h-4 text-[#48CAE4]" />
+                      <Shield className="w-4 h-4 text-[#1769AA]" />
                       Trainer Approvals
                     </Link>
                   )}
-                  <div className="border-t border-[#0077B6]/40 my-1"></div>
+                  <div className="border-t border-[#E2E8F0] my-1"></div>
                   <button
                     onClick={() => {
                       setIsUserMenuOpen(false);
                       logout();
                     }}
-                    className="w-full text-left flex items-center gap-2 px-3.5 py-2 text-rose-300 hover:bg-rose-950/40 hover:text-rose-200 transition"
+                    className="w-full text-left flex items-center gap-2 px-3.5 py-2 text-[#D64545] hover:bg-[#FDF2F2] transition font-medium"
                   >
                     <LogOut className="w-4 h-4" />
                     Sign Out
@@ -262,13 +276,13 @@ export function Header() {
             <div className="flex items-center gap-2">
               <Link
                 href="/login"
-                className="px-4 py-2 rounded-xl text-xs font-semibold text-white bg-[#03045E] hover:bg-[#0077B6] transition border border-[#0096C7]/50 shadow-sm"
+                className="px-3.5 py-2 rounded-lg text-xs font-semibold text-[#1769AA] border border-[#1769AA] hover:bg-[#EBF3FB] transition"
               >
                 Sign In
               </Link>
               <Link
                 href="/register"
-                className="px-4 py-2 rounded-xl text-xs font-bold text-white bg-[#0077B6] hover:bg-[#0096C7] transition shadow-md"
+                className="px-4 py-2 rounded-lg text-xs font-semibold text-white bg-[#1769AA] hover:bg-[#135488] transition shadow-sm"
               >
                 Register
               </Link>
@@ -278,7 +292,7 @@ export function Header() {
           {/* Mobile menu button */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="md:hidden p-2 rounded-xl text-[#ADE8F4] hover:text-white hover:bg-[#0077B6]"
+            className="md:hidden p-2 rounded-lg text-[#172B4D] hover:bg-[#F7F9FC]"
           >
             {isMobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </button>
@@ -287,18 +301,18 @@ export function Header() {
 
       {/* Mobile menu */}
       {isMobileMenuOpen && (
-        <div className="md:hidden bg-[#023E8A] border-b border-[#0077B6] px-4 pt-2 pb-4 space-y-2 text-sm">
+        <div className="md:hidden bg-white border-b border-[#E2E8F0] px-4 pt-2 pb-4 space-y-2 text-sm shadow-md">
           <Link
             href="/courses"
             onClick={() => setIsMobileMenuOpen(false)}
-            className="block px-3 py-2 rounded-xl text-[#CAF0F8] hover:bg-[#0077B6]"
+            className="block px-3 py-2 rounded-lg text-[#172B4D] hover:bg-[#F7F9FC] font-medium"
           >
             Course Catalog
           </Link>
           <Link
             href="/verify"
             onClick={() => setIsMobileMenuOpen(false)}
-            className="block px-3 py-2 rounded-xl text-[#CAF0F8] hover:bg-[#0077B6]"
+            className="block px-3 py-2 rounded-lg text-[#172B4D] hover:bg-[#F7F9FC] font-medium"
           >
             Verify Certificate
           </Link>
@@ -307,7 +321,7 @@ export function Header() {
               <Link
                 href={getDashboardLink()}
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="block px-3 py-2 rounded-xl text-[#48CAE4] font-bold hover:bg-[#0077B6]"
+                className="block px-3 py-2 rounded-lg text-[#1769AA] font-bold hover:bg-[#F7F9FC]"
               >
                 Dashboard
               </Link>
@@ -316,7 +330,7 @@ export function Header() {
                   setIsMobileMenuOpen(false);
                   logout();
                 }}
-                className="w-full text-left px-3 py-2 rounded-xl text-rose-300 hover:bg-[#03045E]"
+                className="w-full text-left px-3 py-2 rounded-lg text-[#D64545] hover:bg-[#FDF2F2]"
               >
                 Sign Out
               </button>
@@ -326,14 +340,14 @@ export function Header() {
               <Link
                 href="/login"
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="text-center px-4 py-2 rounded-xl bg-[#03045E] text-white font-semibold"
+                className="text-center px-4 py-2 rounded-lg border border-[#1769AA] text-[#1769AA] font-semibold"
               >
                 Sign In
               </Link>
               <Link
                 href="/register"
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="text-center px-4 py-2 rounded-xl bg-[#0077B6] text-white font-bold"
+                className="text-center px-4 py-2 rounded-lg bg-[#1769AA] text-white font-bold"
               >
                 Register
               </Link>
@@ -344,3 +358,4 @@ export function Header() {
     </header>
   );
 }
+

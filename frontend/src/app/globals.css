@@ -5,35 +5,38 @@
 @layer base {
   :root {
     --font-inter: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-    --color-midnight: #03045E;
-    --color-royal: #023E8A;
-    --color-cobalt: #0077B6;
-    --color-azure: #0096C7;
-    --color-cerulean: #00B4D8;
-    --color-aqua: #48CAE4;
-    --color-ice: #90E0EF;
-    --color-mist: #ADE8F4;
-    --color-light: #CAF0F8;
+    --color-primary-navy: #12355B;
+    --color-primary-blue: #1769AA;
+    --color-accent-teal: #00A6A6;
+    --color-light-teal: #DFF5F3;
+    --color-page-bg: #F7F9FC;
+    --color-white: #FFFFFF;
+    --color-primary-text: #172B4D;
+    --color-secondary-text: #64748B;
+    --color-border: #E2E8F0;
+    --color-success: #16875D;
+    --color-warning: #D89B18;
+    --color-error: #D64545;
   }
 
   html {
     font-family: var(--font-inter);
-    color: #03045E;
-    background-color: #F2FCFD;
+    color: #172B4D;
+    background-color: #F7F9FC;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
 
   body {
-    background-color: #F2FCFD;
-    color: #03045E;
+    background-color: #F7F9FC;
+    color: #172B4D;
     min-height: 100vh;
   }
 
   /* Accessible selection highlight */
   ::selection {
-    background-color: #90E0EF;
-    color: #03045E;
+    background-color: #DFF5F3;
+    color: #12355B;
   }
 
   /* Accessibility: Tabular numbers for clean stats and data tables */
@@ -54,21 +57,22 @@
   }
 }
 
-/* Custom scrollbar styled with oceanic palette */
+/* Custom scrollbar styled with clean institutional palette */
 ::-webkit-scrollbar {
   width: 8px;
   height: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #E6F8FB;
+  background: #F1F5F9;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #90E0EF;
+  background: #CBD5E1;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #0096C7;
+  background: #94A3B8;
 }
+

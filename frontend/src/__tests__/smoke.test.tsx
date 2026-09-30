@@ -9,7 +9,7 @@ describe("Frontend Core Components Smoke Test", () => {
     render(<Button variant="primary">Test Action</Button>);
     const btn = screen.getByRole("button", { name: /test action/i });
     expect(btn).toBeDefined();
-    expect(btn.className).toContain("bg-[#0077B6]");
+    expect(btn.className).toContain("bg-[#1769AA]");
   });
 
   it("renders SkipLink component for accessibility", () => {
@@ -19,3 +19,4 @@ describe("Frontend Core Components Smoke Test", () => {
     expect(link.getAttribute("href")).toBe("#main-content");
   });
 });
+

@@ -75,24 +75,50 @@ export default function RegisterPage() {
   };
 
   return (
-    <div className="flex-1 flex items-center justify-center p-4 sm:p-8 bg-gov-slate-100">
-      <div className="max-w-xl w-full space-y-6">
-        <div className="text-center space-y-2">
-          <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-emerald-500 to-gov-navy flex items-center justify-center mx-auto text-white shadow-md border border-emerald-400/30">
-            <Shield className="w-6 h-6" />
+    <div className="flex-1 bg-[#F7F9FC] py-12 px-4 sm:px-6 lg:px-8 flex items-center justify-center">
+      <div className="max-w-4xl w-full grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        {/* Left Side: Institutional Trust / Information */}
+        <div className="lg:col-span-4 space-y-6 hidden lg:block sticky top-24">
+          <div className="space-y-3">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#DFF5F3] text-[#12355B] text-xs font-semibold">
+              <Shield className="w-3.5 h-3.5 text-[#00A6A6]" />
+              <span>National Capacity Network</span>
+            </div>
+            <h1 className="text-2xl font-bold text-[#12355B] tracking-tight leading-tight">
+              Officer & Trainer Accreditation
+            </h1>
+            <p className="text-xs text-[#64748B] leading-relaxed">
+              Register to participate in verified public sector learning or apply as a recognized subject matter instructor.
+            </p>
           </div>
-          <h1 className="text-2xl font-extrabold text-gov-navy tracking-tight">
-            Accreditation & Registration
-          </h1>
-          <p className="text-xs text-gov-slate-600">
-            Join the National Capacity Building Network as a Trainee Officer or Certified Instructor.
-          </p>
+
+          <div className="p-4 rounded-xl bg-white border border-[#E2E8F0] shadow-sm space-y-3">
+            <div className="text-xs font-bold text-[#12355B] uppercase tracking-wider">
+              Track Guidelines:
+            </div>
+            <div className="space-y-2 text-xs text-[#64748B]">
+              <div className="flex items-start gap-2">
+                <span className="font-bold text-[#1769AA]">•</span>
+                <span><b>Civil Servants:</b> Immediate activation for courses & timed certification assessments.</span>
+              </div>
+              <div className="flex items-start gap-2">
+                <span className="font-bold text-[#1769AA]">•</span>
+                <span><b>Trainers:</b> Requires administrative governance review & expertise validation.</span>
+              </div>
+            </div>
+          </div>
         </div>
 
-        <div className="bg-white p-6 sm:p-8 rounded-xl border border-gov-slate-200 shadow-sm space-y-5">
+        {/* Right Side: Clean Registration Card */}
+        <div className="lg:col-span-8 bg-white p-6 sm:p-8 rounded-xl border border-[#E2E8F0] shadow-sm space-y-6">
+          <div>
+            <h2 className="text-xl font-bold text-[#12355B]">Create Accredited Account</h2>
+            <p className="text-xs text-[#64748B] mt-0.5">Select your role track to configure credentials</p>
+          </div>
+
           {/* Role Toggle Selector */}
           <div>
-            <label className="block text-xs font-bold text-gov-navy uppercase tracking-wider mb-2">
+            <label className="block text-xs font-semibold text-[#172B4D] uppercase tracking-wider mb-2">
               Select Registration Track
             </label>
             <div className="grid grid-cols-2 gap-3">
@@ -101,18 +127,20 @@ export default function RegisterPage() {
                 onClick={() => setRole("trainee")}
                 className={`p-3 rounded-lg border text-left flex items-center gap-3 transition ${
                   role === "trainee"
-                    ? "border-emerald-600 bg-emerald-50 text-emerald-950 font-bold ring-2 ring-emerald-500/20"
-                    : "border-gov-slate-200 hover:bg-gov-slate-50 text-gov-slate-700"
+                    ? "border-[#1769AA] bg-[#EBF3FB] text-[#12355B] font-bold ring-2 ring-[#1769AA]/20"
+                    : "border-[#E2E8F0] hover:bg-[#F7F9FC] text-[#64748B]"
                 }`}
               >
-                <div className={`w-8 h-8 rounded-lg flex items-center justify-center ${
-                  role === "trainee" ? "bg-emerald-600 text-white" : "bg-gov-slate-100 text-gov-slate-600"
-                }`}>
+                <div
+                  className={`w-8 h-8 rounded-lg flex items-center justify-center ${
+                    role === "trainee" ? "bg-[#1769AA] text-white" : "bg-[#F7F9FC] text-[#64748B]"
+                  }`}
+                >
                   <BookOpen className="w-4 h-4" />
                 </div>
                 <div>
                   <div className="text-xs font-bold">Civil Servant / Trainee</div>
-                  <div className="text-[10px] text-gov-slate-500">Immediate access to LMS</div>
+                  <div className="text-[10px] text-[#64748B]">Immediate access to LMS</div>
                 </div>
               </button>
 
@@ -121,25 +149,27 @@ export default function RegisterPage() {
                 onClick={() => setRole("trainer")}
                 className={`p-3 rounded-lg border text-left flex items-center gap-3 transition ${
                   role === "trainer"
-                    ? "border-blue-600 bg-blue-50 text-blue-950 font-bold ring-2 ring-blue-500/20"
-                    : "border-gov-slate-200 hover:bg-gov-slate-50 text-gov-slate-700"
+                    ? "border-[#00A6A6] bg-[#DFF5F3] text-[#12355B] font-bold ring-2 ring-[#00A6A6]/20"
+                    : "border-[#E2E8F0] hover:bg-[#F7F9FC] text-[#64748B]"
                 }`}
               >
-                <div className={`w-8 h-8 rounded-lg flex items-center justify-center ${
-                  role === "trainer" ? "bg-blue-600 text-white" : "bg-gov-slate-100 text-gov-slate-600"
-                }`}>
+                <div
+                  className={`w-8 h-8 rounded-lg flex items-center justify-center ${
+                    role === "trainer" ? "bg-[#00A6A6] text-white" : "bg-[#F7F9FC] text-[#64748B]"
+                  }`}
+                >
                   <GraduationCap className="w-4 h-4" />
                 </div>
                 <div>
                   <div className="text-xs font-bold">Subject Expert / Trainer</div>
-                  <div className="text-[10px] text-gov-slate-500">Requires Admin Approval</div>
+                  <div className="text-[10px] text-[#64748B]">Requires Admin Approval</div>
                 </div>
               </button>
             </div>
           </div>
 
           {errorMsg && (
-            <div className="p-3 rounded-lg bg-rose-50 border border-rose-200 text-rose-700 text-xs flex items-center gap-2">
+            <div className="p-3 rounded-lg bg-[#FDF2F2] border border-[#D64545]/30 text-[#D64545] text-xs flex items-center gap-2">
               <AlertCircle className="w-4 h-4 shrink-0" />
               <span>{errorMsg}</span>
             </div>
@@ -148,35 +178,35 @@ export default function RegisterPage() {
           <form onSubmit={handleSubmit} className="space-y-4">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
-                <label className="block text-xs font-bold text-gov-navy uppercase tracking-wider mb-1.5">
+                <label className="block text-xs font-semibold text-[#172B4D] uppercase tracking-wider mb-1.5">
                   Full Name
                 </label>
                 <div className="relative">
-                  <User className="w-4 h-4 text-gov-slate-400 absolute left-3 top-3" />
+                  <User className="w-4 h-4 text-[#64748B] absolute left-3 top-3" />
                   <input
                     type="text"
                     required
                     value={fullName}
                     onChange={(e) => setFullName(e.target.value)}
                     placeholder="Dr. Rajesh Sharma"
-                    className="w-full pl-9 pr-3 py-2 text-xs rounded-lg border border-gov-slate-300 focus:outline-none focus:ring-2 focus:ring-emerald-500/50 focus:border-emerald-500"
+                    className="w-full pl-9 pr-3 py-2 text-xs rounded-lg border border-[#E2E8F0] text-[#172B4D] placeholder-[#64748B] focus:outline-none focus:border-[#1769AA]"
                   />
                 </div>
               </div>
 
               <div>
-                <label className="block text-xs font-bold text-gov-navy uppercase tracking-wider mb-1.5">
+                <label className="block text-xs font-semibold text-[#172B4D] uppercase tracking-wider mb-1.5">
                   Official Email
                 </label>
                 <div className="relative">
-                  <Mail className="w-4 h-4 text-gov-slate-400 absolute left-3 top-3" />
+                  <Mail className="w-4 h-4 text-[#64748B] absolute left-3 top-3" />
                   <input
                     type="email"
                     required
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder="officer@department.gov.in"
-                    className="w-full pl-9 pr-3 py-2 text-xs rounded-lg border border-gov-slate-300 focus:outline-none focus:ring-2 focus:ring-emerald-500/50 focus:border-emerald-500"
+                    className="w-full pl-9 pr-3 py-2 text-xs rounded-lg border border-[#E2E8F0] text-[#172B4D] placeholder-[#64748B] focus:outline-none focus:border-[#1769AA]"
                   />
                 </div>
               </div>
@@ -184,11 +214,11 @@ export default function RegisterPage() {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
-                <label className="block text-xs font-bold text-gov-navy uppercase tracking-wider mb-1.5">
+                <label className="block text-xs font-semibold text-[#172B4D] uppercase tracking-wider mb-1.5">
                   Password
                 </label>
                 <div className="relative">
-                  <Lock className="w-4 h-4 text-gov-slate-400 absolute left-3 top-3" />
+                  <Lock className="w-4 h-4 text-[#64748B] absolute left-3 top-3" />
                   <input
                     type="password"
                     required
@@ -196,24 +226,24 @@ export default function RegisterPage() {
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     placeholder="Min 8 characters"
-                    className="w-full pl-9 pr-3 py-2 text-xs rounded-lg border border-gov-slate-300 focus:outline-none focus:ring-2 focus:ring-emerald-500/50 focus:border-emerald-500"
+                    className="w-full pl-9 pr-3 py-2 text-xs rounded-lg border border-[#E2E8F0] text-[#172B4D] placeholder-[#64748B] focus:outline-none focus:border-[#1769AA]"
                   />
                 </div>
               </div>
 
               <div>
-                <label className="block text-xs font-bold text-gov-navy uppercase tracking-wider mb-1.5">
+                <label className="block text-xs font-semibold text-[#172B4D] uppercase tracking-wider mb-1.5">
                   Ministry / Organization
                 </label>
                 <div className="relative">
-                  <Building className="w-4 h-4 text-gov-slate-400 absolute left-3 top-3" />
+                  <Building className="w-4 h-4 text-[#64748B] absolute left-3 top-3" />
                   <input
                     type="text"
                     required
                     value={organization}
                     onChange={(e) => setOrganization(e.target.value)}
                     placeholder="Ministry of Electronics & IT"
-                    className="w-full pl-9 pr-3 py-2 text-xs rounded-lg border border-gov-slate-300 focus:outline-none focus:ring-2 focus:ring-emerald-500/50 focus:border-emerald-500"
+                    className="w-full pl-9 pr-3 py-2 text-xs rounded-lg border border-[#E2E8F0] text-[#172B4D] placeholder-[#64748B] focus:outline-none focus:border-[#1769AA]"
                   />
                 </div>
               </div>
@@ -221,9 +251,9 @@ export default function RegisterPage() {
 
             {/* Dynamic Role-Specific Inputs */}
             {role === "trainee" ? (
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 p-4 rounded-lg bg-gov-slate-50 border border-gov-slate-200">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 p-4 rounded-lg bg-[#F7F9FC] border border-[#E2E8F0]">
                 <div>
-                  <label className="block text-xs font-bold text-gov-navy uppercase tracking-wider mb-1">
+                  <label className="block text-xs font-semibold text-[#172B4D] uppercase tracking-wider mb-1">
                     Department / Wing
                   </label>
                   <input
@@ -231,11 +261,11 @@ export default function RegisterPage() {
                     value={department}
                     onChange={(e) => setDepartment(e.target.value)}
                     placeholder="Network Security Division"
-                    className="w-full px-3 py-2 text-xs rounded-lg border border-gov-slate-300 focus:outline-none focus:border-emerald-500"
+                    className="w-full px-3 py-2 text-xs rounded-lg border border-[#E2E8F0] text-[#172B4D] placeholder-[#64748B] focus:outline-none focus:border-[#1769AA] bg-white"
                   />
                 </div>
                 <div>
-                  <label className="block text-xs font-bold text-gov-navy uppercase tracking-wider mb-1">
+                  <label className="block text-xs font-semibold text-[#172B4D] uppercase tracking-wider mb-1">
                     Designation
                   </label>
                   <input
@@ -243,14 +273,14 @@ export default function RegisterPage() {
                     value={designation}
                     onChange={(e) => setDesignation(e.target.value)}
                     placeholder="Deputy Director / Scientist"
-                    className="w-full px-3 py-2 text-xs rounded-lg border border-gov-slate-300 focus:outline-none focus:border-emerald-500"
+                    className="w-full px-3 py-2 text-xs rounded-lg border border-[#E2E8F0] text-[#172B4D] placeholder-[#64748B] focus:outline-none focus:border-[#1769AA] bg-white"
                   />
                 </div>
               </div>
             ) : (
-              <div className="p-4 rounded-lg bg-blue-50/60 border border-blue-200 space-y-3">
+              <div className="p-4 rounded-lg bg-[#F7F9FC] border border-[#E2E8F0] space-y-3">
                 <div>
-                  <label className="block text-xs font-bold text-blue-950 uppercase tracking-wider mb-1">
+                  <label className="block text-xs font-semibold text-[#12355B] uppercase tracking-wider mb-1">
                     Expertise Subjects (Comma-separated)
                   </label>
                   <input
@@ -258,11 +288,11 @@ export default function RegisterPage() {
                     value={expertise}
                     onChange={(e) => setExpertise(e.target.value)}
                     placeholder="Cybersecurity, CERT-In Guidelines, DPI, India Stack"
-                    className="w-full px-3 py-2 text-xs rounded-lg border border-blue-300 focus:outline-none focus:border-blue-500"
+                    className="w-full px-3 py-2 text-xs rounded-lg border border-[#E2E8F0] text-[#172B4D] placeholder-[#64748B] focus:outline-none focus:border-[#1769AA] bg-white"
                   />
                 </div>
                 <div>
-                  <label className="block text-xs font-bold text-blue-950 uppercase tracking-wider mb-1">
+                  <label className="block text-xs font-semibold text-[#12355B] uppercase tracking-wider mb-1">
                     Years of Relevant Experience: {experienceYears} Years
                   </label>
                   <input
@@ -271,7 +301,7 @@ export default function RegisterPage() {
                     max="30"
                     value={experienceYears}
                     onChange={(e) => setExperienceYears(Number(e.target.value))}
-                    className="w-full accent-blue-600"
+                    className="w-full accent-[#1769AA]"
                   />
                 </div>
               </div>
@@ -280,16 +310,16 @@ export default function RegisterPage() {
             <button
               type="submit"
               disabled={isLoading}
-              className="w-full py-2.5 rounded-lg bg-emerald-600 hover:bg-emerald-500 disabled:opacity-50 text-white font-bold text-xs shadow-md transition flex items-center justify-center gap-2"
+              className="w-full py-2.5 rounded-lg bg-[#1769AA] hover:bg-[#135488] disabled:opacity-50 text-white font-semibold text-xs shadow-sm transition flex items-center justify-center gap-2"
             >
               {isLoading ? "Creating Account..." : "Complete Registration"}
               {!isLoading && <ArrowRight className="w-4 h-4" />}
             </button>
           </form>
 
-          <div className="text-center pt-2 border-t border-gov-slate-100 text-xs text-gov-slate-500">
+          <div className="text-center pt-2 border-t border-[#E2E8F0] text-xs text-[#64748B]">
             Already have an account?{" "}
-            <Link href="/login" className="font-bold text-emerald-600 hover:underline">
+            <Link href="/login" className="font-semibold text-[#1769AA] hover:underline">
               Sign In
             </Link>
           </div>
@@ -298,3 +328,4 @@ export default function RegisterPage() {
     </div>
   );
 }
+

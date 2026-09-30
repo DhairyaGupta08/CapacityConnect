@@ -26,54 +26,57 @@ export default function VerifyIndexPage() {
   const sampleCodes = ["CC-2026-N8X9L2"];
 
   return (
-    <div className="flex-1 bg-gov-slate-100 py-12 px-4 sm:px-6 lg:px-8 flex items-center justify-center">
+    <div className="flex-1 bg-[#F7F9FC] py-14 px-4 sm:px-6 lg:px-8 flex items-center justify-center">
       <div className="max-w-2xl w-full space-y-8">
         {/* Header */}
         <div className="text-center space-y-3">
-          <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-emerald-600 to-gov-navy flex items-center justify-center mx-auto text-white shadow-lg border border-emerald-400/40">
-            <Award className="w-8 h-8" />
+          <div className="w-14 h-14 rounded-xl bg-[#DFF5F3] border border-[#00A6A6]/30 flex items-center justify-center mx-auto text-[#00A6A6]">
+            <Award className="w-7 h-7" />
           </div>
-          <h1 className="text-3xl font-extrabold text-gov-navy tracking-tight">
-            National Public Certificate Verification
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#DFF5F3] border border-[#00A6A6]/20 text-[#12355B] text-xs font-semibold">
+            <ShieldCheck className="w-3.5 h-3.5 text-[#00A6A6]" />
+            National Accreditation Registry
+          </div>
+          <h1 className="text-2xl sm:text-3xl font-bold text-[#12355B] tracking-tight">
+            Certificate & Credential Verification
           </h1>
-          <p className="text-xs sm:text-sm text-gov-slate-600 max-w-lg mx-auto leading-relaxed">
-            Verify the authenticity and accreditation status of any certificate issued by Capacity Connect.
-            Enter the unique serial code printed on the official PDF document.
+          <p className="text-sm text-[#64748B] max-w-lg mx-auto leading-relaxed">
+            Verify the authenticity, examination grade, and accreditation status of any digital certificate issued by Capacity Connect. Enter the unique serial code printed on the official document.
           </p>
         </div>
 
         {/* Verification Form Card */}
-        <div className="bg-white p-8 rounded-2xl border border-gov-slate-200 shadow-md space-y-6">
+        <div className="bg-white p-7 sm:p-8 rounded-xl border border-[#E2E8F0] shadow-[0_4px_20px_rgba(18,53,91,0.06)] space-y-6">
           <form onSubmit={handleSearch} className="space-y-4">
             <div>
-              <label className="block text-xs font-bold text-gov-navy uppercase tracking-wider mb-2">
-                Enter Certificate Serial Code
+              <label className="block text-xs font-semibold text-[#12355B] uppercase tracking-wider mb-2">
+                Certificate Serial Code
               </label>
               <div className="relative">
-                <Search className="w-5 h-5 text-gov-slate-400 absolute left-3.5 top-3.5" />
+                <Search className="w-4 h-4 text-[#64748B] absolute left-3.5 top-3.5" />
                 <input
                   type="text"
                   required
                   value={code}
                   onChange={(e) => setCode(e.target.value)}
                   placeholder="e.g. CC-2026-N8X9L2"
-                  className="w-full pl-11 pr-4 py-3 text-sm rounded-xl border border-gov-slate-300 focus:outline-none focus:ring-2 focus:ring-emerald-500/50 focus:border-emerald-500 font-mono text-gov-navy uppercase tracking-wider"
+                  className="w-full pl-10 pr-4 py-2.5 text-sm rounded-lg border border-[#E2E8F0] focus:outline-none focus:ring-2 focus:ring-[#1769AA]/30 focus:border-[#1769AA] font-mono text-[#172B4D] uppercase tracking-wider bg-[#F7F9FC]"
                 />
               </div>
             </div>
 
             <button
               type="submit"
-              className="w-full py-3 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-sm shadow-md transition flex items-center justify-center gap-2"
+              className="w-full py-2.5 rounded-lg bg-[#1769AA] hover:bg-[#12355B] text-white font-semibold text-sm shadow-sm transition flex items-center justify-center gap-2"
             >
-              <ShieldCheck className="w-4 h-4" /> Verify Credential Authenticity
+              <ShieldCheck className="w-4 h-4 text-white" /> Verify Credential Authenticity
             </button>
           </form>
 
           {/* Quick Click Demo Codes */}
-          <div className="pt-4 border-t border-gov-slate-100 space-y-2">
-            <div className="text-xs font-semibold text-gov-slate-500">
-              Sample Verified Codes for Instant Testing:
+          <div className="pt-4 border-t border-[#E2E8F0] space-y-2">
+            <div className="text-xs font-medium text-[#64748B]">
+              Sample Verified Serial for Instant Testing:
             </div>
             <div className="flex flex-wrap gap-2">
               {sampleCodes.map((c) => (
@@ -81,9 +84,9 @@ export default function VerifyIndexPage() {
                   key={c}
                   type="button"
                   onClick={() => router.push(`/verify/${c}`)}
-                  className="px-3 py-1.5 rounded-lg bg-gov-slate-100 hover:bg-emerald-50 hover:text-emerald-800 hover:border-emerald-300 border border-gov-slate-200 text-xs font-mono font-bold text-gov-navy transition flex items-center gap-1.5"
+                  className="px-3 py-1.5 rounded-lg bg-[#F7F9FC] hover:bg-[#DFF5F3] hover:text-[#12355B] hover:border-[#00A6A6]/40 border border-[#E2E8F0] text-xs font-mono font-semibold text-[#172B4D] transition flex items-center gap-1.5"
                 >
-                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />
+                  <CheckCircle2 className="w-3.5 h-3.5 text-[#16875D]" />
                   {c}
                 </button>
               ))}
@@ -92,26 +95,32 @@ export default function VerifyIndexPage() {
         </div>
 
         {/* Security & Verification Guarantee */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs text-gov-slate-600">
-          <div className="p-4 bg-white rounded-xl border border-gov-slate-200 flex items-start gap-2.5">
-            <Shield className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs text-[#64748B]">
+          <div className="p-4 bg-white rounded-xl border border-[#E2E8F0] shadow-sm flex items-start gap-3">
+            <div className="w-8 h-8 rounded-lg bg-[#E8F8F0] flex items-center justify-center shrink-0">
+              <Shield className="w-4 h-4 text-[#16875D]" />
+            </div>
             <div>
-              <div className="font-bold text-gov-navy">Tamper-Proof</div>
-              <p className="text-[11px] text-gov-slate-500">Cryptographically issued & stored</p>
+              <div className="font-semibold text-[#172B4D]">Tamper-Proof</div>
+              <p className="text-[11px] text-[#64748B] mt-0.5">Cryptographically logged & timestamped</p>
             </div>
           </div>
-          <div className="p-4 bg-white rounded-xl border border-gov-slate-200 flex items-start gap-2.5">
-            <QrCode className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
+          <div className="p-4 bg-white rounded-xl border border-[#E2E8F0] shadow-sm flex items-start gap-3">
+            <div className="w-8 h-8 rounded-lg bg-[#DFF5F3] flex items-center justify-center shrink-0">
+              <QrCode className="w-4 h-4 text-[#00A6A6]" />
+            </div>
             <div>
-              <div className="font-bold text-gov-navy">Instant Scan</div>
-              <p className="text-[11px] text-gov-slate-500">Integrated QR code validation</p>
+              <div className="font-semibold text-[#172B4D]">Instant Scan</div>
+              <p className="text-[11px] text-[#64748B] mt-0.5">Integrated high-density QR verification</p>
             </div>
           </div>
-          <div className="p-4 bg-white rounded-xl border border-gov-slate-200 flex items-start gap-2.5">
-            <FileCheck className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
+          <div className="p-4 bg-white rounded-xl border border-[#E2E8F0] shadow-sm flex items-start gap-3">
+            <div className="w-8 h-8 rounded-lg bg-[#F7F9FC] border border-[#E2E8F0] flex items-center justify-center shrink-0">
+              <FileCheck className="w-4 h-4 text-[#1769AA]" />
+            </div>
             <div>
-              <div className="font-bold text-gov-navy">ReportLab PDF</div>
-              <p className="text-[11px] text-gov-slate-500">Direct PDF rendering & download</p>
+              <div className="font-semibold text-[#172B4D]">Official PDF</div>
+              <p className="text-[11px] text-[#64748B] mt-0.5">Direct sovereign PDF export & archive</p>
             </div>
           </div>
         </div>
